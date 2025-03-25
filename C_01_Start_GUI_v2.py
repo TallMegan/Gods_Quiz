@@ -7,6 +7,16 @@ class StartGame:
     """
 
     # functions go here
+
+    def on_click(event, self):
+        self.num_questions_entry.configure(state=NORMAL)
+        self.num_questions_entry.delete(0, END)
+
+        # make the callback only work once
+        self.num_questions_entry.unbind('<Button-1>', on_click_id)
+
+    on_click_id = self.num_questions_entry.bind('<Button-1>', on_click)
+
     def check_question(self):
         """
         checks that the number of questions
@@ -18,7 +28,7 @@ class StartGame:
         has_errors = "no"
 
         # reset label and entry box (for when users come back to home screen)
-        self.choose_label.config(fg="#009900", font=("Arial", "12", "bold"))
+        self.num_questions_entry.config(fg="#009900", font=("Arial", "12", "bold"))
         self.num_questions_entry.config(bg="#FFFFFF")
 
         try:
@@ -26,15 +36,17 @@ class StartGame:
 
             if q_wanted > 0:
                 # temporary success message, replace with call to PlayGame class
-                self.choose_label.config(text=f"You have chosen to play {q_wanted} round/s")
+                self.num_questions_entry.pack()
+                self.num_questions_entry.insert(0, f"You have chosen {q_wanted} questions")
+                self.num_questions_entry.config(state=DISABLED)
 
         except ValueError:
             has_errors = "yes"
 
             # display the error if necessary
         if has_errors == "yes":
-            self.choose_label.config(text=error, fg="#990000",
-                                     font=("Arial", "10", "bold"))
+            # self.choose_label.config(text=error, fg="#990000",
+            #                          font=("Arial", "10", "bold"))
 
             self.num_questions_entry.config(bg="#F4CCCC")
             self.num_questions_entry.delete(0, END)
@@ -93,12 +105,13 @@ class StartGame:
         self.play_button = Button(self.entry_area_frame, font=("Arial", "16", "bold"),
                                   fg="#FFFFFF", bg="#0057D8", text="Play", width=10,
                                   command=self.check_question)
+        self.num_questions_entry.unbind('<Button-1>', on_click_id)
         self.play_button.grid(row=1)
 
 
 # main routine
 if __name__ == "__main__":
     root = Tk()
-    root.title("Gods Quiz")
+    root.title("Colour Quest")
     StartGame()
     root.mainloop()
