@@ -6,17 +6,6 @@ class StartGame:
     gods quiz main menu
     """
 
-    # functions go here
-
-    def on_click(event, self):
-        self.num_questions_entry.configure(state=NORMAL)
-        self.num_questions_entry.delete(0, END)
-
-        # make the callback only work once
-        self.num_questions_entry.unbind('<Button-1>', on_click_id)
-
-    on_click_id = self.num_questions_entry.bind('<Button-1>', on_click)
-
     def check_question(self):
         """
         checks that the number of questions
@@ -24,37 +13,39 @@ class StartGame:
         """
         q_wanted = self.num_questions_entry.get()
 
-        error = "Error: Please enter a number or make it more than 0"
         has_errors = "no"
 
         # reset label and entry box (for when users come back to home screen)
-        self.num_questions_entry.config(fg="#009900", font=("Arial", "12", "bold"))
-        self.num_questions_entry.config(bg="#FFFFFF")
-
         try:
             q_wanted = int(q_wanted)
 
             if q_wanted > 0:
                 # temporary success message, replace with call to PlayGame class
-                self.num_questions_entry.pack()
-                self.num_questions_entry.insert(0, f"You have chosen {q_wanted} questions")
-                self.num_questions_entry.config(state=DISABLED)
+                self.choose_label.config(fg="#009900", font=("Arial", "12", "bold"),
+                                         text=f"You have chosen to play {q_wanted} round/s")
+            else:
+                has_errors = "yes"
 
         except ValueError:
             has_errors = "yes"
 
             # display the error if necessary
         if has_errors == "yes":
-            # self.choose_label.config(text=error, fg="#990000",
-            #                          font=("Arial", "10", "bold"))
-
-            self.num_questions_entry.config(bg="#F4CCCC")
             self.num_questions_entry.delete(0, END)
+            self.num_questions_entry.config(bg="#F4CCCC")
+            self.num_questions_entry.insert(0, "Please enter a number (>0)")
 
     def __init__(self):
         """
         gets the number of questions from the user
         """
+
+        def on_click(event):
+            self.num_questions_entry.configure(state=NORMAL)
+            self.num_questions_entry.delete(0, END)
+
+            # make the callback only work once
+            self.num_questions_entry.unbind('<Button-1>', self.on_click_id)
 
         self.start_frame = Frame(padx=10, pady=10)
         self.start_frame.grid()
@@ -71,7 +62,7 @@ class StartGame:
         choose_question = "How many questions would you like?"
 
         # list of the main menu labels and their specifications (mm means main menu)
-        # text | font
+        # text | font | justify
         mm_labels = [
             ["Gods Quiz", ("Arial", "16", "bold")],
             [intro_string, ("Arial", "12")],
@@ -80,10 +71,9 @@ class StartGame:
 
         # create labels and add them to a reference list (mm means main menu)
         mm_labels_ref = []
-
         for count, item in enumerate(mm_labels):
             make_label = Label(self.start_frame, text=item[0], font=item[1],
-                               pady=10, padx=10,
+                               pady=10, padx=10, justify="left",
                                wraplength=350)
             make_label.grid(row=count)
 
@@ -99,13 +89,21 @@ class StartGame:
 
         self.num_questions_entry = Entry(self.entry_area_frame, font=("Arial", "20", "bold"),
                                          width=20)
+
+        # inserts the placeholder
+        self.num_questions_entry.pack()
+        self.num_questions_entry.insert(0, "How many questions would you like?")
+        self.num_questions_entry.configure(state=DISABLED)
+
+        # removes the placeholder
+        self.on_click_id = self.num_questions_entry.bind('<Button-1>', on_click)
+
         self.num_questions_entry.grid(row=0, column=0, padx=10, pady=10)
 
         # create play button
         self.play_button = Button(self.entry_area_frame, font=("Arial", "16", "bold"),
                                   fg="#FFFFFF", bg="#0057D8", text="Play", width=10,
                                   command=self.check_question)
-        self.num_questions_entry.unbind('<Button-1>', on_click_id)
         self.play_button.grid(row=1)
 
 
