@@ -33,7 +33,11 @@ class StartGame:
         if has_errors == "yes":
             self.num_questions_entry.delete(0, END)
             self.num_questions_entry.config(bg="#F4CCCC")
-            self.num_questions_entry.insert(0, "Please enter a number (>0)")
+            self.num_questions_entry.insert(0, "Please enter a whole number (>0)")
+            self.num_questions_entry.configure(state=DISABLED)
+
+            # removes the placeholder
+            self.on_click_id = self.num_questions_entry.bind('<Button-1>')
 
     def __init__(self):
         """
@@ -100,10 +104,11 @@ class StartGame:
 
         self.num_questions_entry.grid(row=0, column=0, padx=10, pady=10)
 
-        # create play button
+        # creates play button
         self.play_button = Button(self.entry_area_frame, font=("Arial", "16", "bold"),
                                   fg="#FFFFFF", bg="#0057D8", text="Play", width=10,
                                   command=self.check_question)
+
         self.play_button.grid(row=1)
 
 
