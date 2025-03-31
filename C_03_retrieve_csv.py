@@ -1,4 +1,5 @@
 import csv
+import random
 
 
 def get_gods():
@@ -7,7 +8,7 @@ def get_gods():
     and puts them into a list
     """
 
-    # retrieve colours from csv file and put them in a list
+    # retrieves gods from csv file and put them in a list
     file = open("gods.csv", "r")
     all_gods = list(csv.reader(file, delimiter=","))
     file.close()
