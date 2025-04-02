@@ -1,7 +1,6 @@
 import csv
 import random
 
-
 # def get_gods():
 #     """
 #     Retrieves the gods and duties from a csv file
@@ -21,24 +20,29 @@ import random
 #
 # gods = get_gods()
 
-gods = [["Zeus", "Lightning"], ["Poseidon", "Ocean"], ["Hades", "Underworld"]]
+gods = [[0, "Zeus", "Lightning"],
+        [1, "Poseidon", "Ocean"],
+        [2, "Hades", "Underworld"]]
 
-for item in range(0, 3):
+possible_gods = gods
+incorrect_duties = []
+random_duties = []
+
+while len(incorrect_duties) < 3:
     god_selected = random.choice(gods)
-    god_name = god_selected[0]
-    correct_duty = god_selected[1]
-
+    god_name = god_selected[1]
+    correct_duty = god_selected[2]
     incorrect_duties = []
-    cycles = 0
-    while cycles < 2:
-        random_duties = random.choice(gods)
-        if random_duties[1] not in incorrect_duties:
-            incorrect_duties.append(random_duties[1])
-            cycles += 1
-        else:
-            continue
+
+    random_duties = random.choice(possible_gods)
+    incorrect_duties.append(random_duties[2])
+
+    for item in incorrect_duties:
+
+        if random_duties[2] in incorrect_duties:
+            random
 
     print(f"God Selected: {god_name}"
           f"\nCorrect Duty: {correct_duty}"
           f"\nIncorrect Duty 1: {incorrect_duties[0]}"
-          f"\nIncorrect Duty 2: {incorrect_duties[1]}\n")
+          f"\nIncorrect Duty 2: {incorrect_duties[0]}\n")
