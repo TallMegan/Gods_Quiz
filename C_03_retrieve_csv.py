@@ -20,29 +20,26 @@ import random
 #
 # gods = get_gods()
 
-gods = [[0, "Zeus", "Lightning"],
-        [1, "Poseidon", "Ocean"],
-        [2, "Hades", "Underworld"]]
 
-possible_gods = gods
-incorrect_duties = []
 random_duties = []
 
-while len(incorrect_duties) < 3:
-    god_selected = random.choice(gods)
-    god_name = god_selected[1]
-    correct_duty = god_selected[2]
+for item in range(0, 3):
     incorrect_duties = []
+    gods = [["Zeus", "Lightning"],
+            ["Poseidon", "Ocean"],
+            ["Hades", "Underworld"],
+            ["Aphrodite", "Love"]]
 
-    random_duties = random.choice(possible_gods)
-    incorrect_duties.append(random_duties[2])
+    god_selected = random.choice(gods)
+    gods.remove(god_selected)
 
-    for item in incorrect_duties:
+    for item in range(0, 2):
+        random_duties = random.choice(gods)
+        incorrect_duties.append(random_duties[1])
+        print(f"incorrect selected: {random_duties[1]}")
+        gods.remove(random_duties)
 
-        if random_duties[2] in incorrect_duties:
-            random
-
-    print(f"God Selected: {god_name}"
-          f"\nCorrect Duty: {correct_duty}"
+    print(f"God Selected: {god_selected[0]}"
+          f"\nCorrect Duty: {god_selected[1]}"
           f"\nIncorrect Duty 1: {incorrect_duties[0]}"
-          f"\nIncorrect Duty 2: {incorrect_duties[0]}\n")
+          f"\nIncorrect Duty 2: {incorrect_duties[1]}\n")
