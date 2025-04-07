@@ -1,4 +1,5 @@
 import csv
+import random
 from tkinter import *
 
 
@@ -8,7 +9,7 @@ def get_gods():
     and puts them into a list
     """
 
-    # retrieve colours from csv file and put them in a list
+    # retrieve gods from csv file and put them in a list
     file = open("gods.csv", "r")
     all_gods = list(csv.reader(file, delimiter=","))
     file.close()
@@ -18,6 +19,23 @@ def get_gods():
 
     return all_gods
 
+def get_question_gods():
+    for item in range(0, 3):
+        incorrect_duties = []
+        gods = get_gods()
+
+        god_selected = random.choice(gods)
+        gods.remove(god_selected)
+
+        for item in range(0, 2):
+            random_duties = random.choice(gods)
+            incorrect_duties.append(random_duties[1])
+            gods.remove(random_duties)
+
+        print(f"God Selected: {god_selected[0]}"
+              f"\nCorrect Duty: {god_selected[1]}"
+              f"\nIncorrect Duty 1: {incorrect_duties[0]}"
+              f"\nIncorrect Duty 2: {incorrect_duties[1]}\n")
 
 class StartGame:
     """
@@ -80,6 +98,7 @@ class StartGame:
 
         self.num_questions_entry = Entry(self.entry_area_frame, font=("Arial", "20", "bold"),
                                          width=20)
+        self.num_questions_entry.config(bg="#a9a9a9")
 
         # inserts the placeholder
         self.num_questions_entry.pack()
@@ -112,9 +131,11 @@ class StartGame:
             q_wanted = int(q_wanted)
 
             if q_wanted > 0:
+                self.num_questions_entry.delete(0, END)
                 # temporary success message, replace with call to PlayGame class
                 self.choose_label.config(fg="#009900", font=("Arial", "12", "bold"),
-                                         text=f"You have chosen to play {q_wanted} round/s")
+                                         text=f"You have chosen to play {q_wanted} question/s")
+                self.num_questions_entry.config(bg="#a9a9a9")
                 Play(q_wanted)
 
             else:
@@ -125,6 +146,8 @@ class StartGame:
 
             # display the error if necessary
         if has_errors == "yes":
+            self.choose_label.config(fg="#000000", font=("Arial", "12", "bold"),
+                                     text="How many questions would you like?")
             self.num_questions_entry.delete(0, END)
             self.num_questions_entry.config(bg="#F4CCCC")
             self.num_questions_entry.insert(0, "Please enter a whole number (>0)")
