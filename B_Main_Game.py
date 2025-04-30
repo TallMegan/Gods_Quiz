@@ -19,6 +19,7 @@ def get_gods():
 
     return all_gods
 
+
 def get_question_gods():
     for item in range(0, 3):
         incorrect_duties = []
@@ -32,10 +33,13 @@ def get_question_gods():
             incorrect_duties.append(random_duties[1])
             gods.remove(random_duties)
 
-        print(f"God Selected: {god_selected[0]}"
-              f"\nCorrect Duty: {god_selected[1]}"
-              f"\nIncorrect Duty 1: {incorrect_duties[0]}"
-              f"\nIncorrect Duty 2: {incorrect_duties[1]}\n")
+        god_name = god_selected[0]
+        correct_duty = god_selected[1]
+        incorrect_duty_1 = incorrect_duties[0]
+        incorrect_duty_2 = incorrect_duties[1]
+
+        return god_name, correct_duty, incorrect_duty_1, incorrect_duty_2
+
 
 class StartGame:
     """
@@ -138,6 +142,9 @@ class StartGame:
                 self.num_questions_entry.config(bg="#a9a9a9")
                 Play(q_wanted)
 
+                # makes the start menu disappear
+                root.withdraw()
+
             else:
                 has_errors = "yes"
 
@@ -159,8 +166,67 @@ class StartGame:
 class Play:
 
     def __init__(self, q_num):
-        self.quiz_frame = Frame(padx=10, pady=10)
-        self.quiz_frame.grid()
+
+        self.quiz_box = Toplevel()
+
+        self.quiz_frame = Frame(self.quiz_box)
+        self.quiz_frame.grid(padx=10, pady=10)
+
+        god_name, correct_duty, incorrect_1, incorrect_2 = get_question_gods()
+
+        # list of the game menu labels and their specifications (gm means game menu)
+        # text | font | justify
+        gm_labels = [
+            [f"{god_name}", ("Arial", "18", "bold")],
+            ["Select an Option below:", ("Arial", "14")],
+        ]
+
+        # create labels and add them to a reference list (mm means main menu)
+        gm_labels_ref = []
+        for count, item in enumerate(gm_labels):
+            make_label = Label(self.quiz_frame, text=item[0], font=item[1],
+                               pady=10, padx=10, justify="left",
+                               wraplength=350)
+            make_label.grid(row=count)
+
+            gm_labels_ref.append(make_label)
+
+        # makes the three option boxes
+        self.options_frame = Frame(self.quiz_frame)
+        self.options_frame.grid(padx=10, pady=10)
+
+        # text | font
+        option_labels = [
+            [f"{correct_duty}", ("Arial", "12")],
+            [f"{incorrect_1}", ("Arial", "12")],
+            [f"{incorrect_2}", ("Arial", "12")],
+        ]
+
+        # the possible columns the buttons could be in
+        possible_columns = [0, 1, 2]
+
+        # create labels and add them to a reference list
+        option_labels_ref = []
+        for count, item in enumerate(option_labels):
+            option_label = Button(self.options_frame, text=item[0], font=item[1],
+                                  pady=10, padx=10, justify="left",
+                                  wraplength=350)
+
+            # randomises the column so that the correct button will appear
+            # in different places instead of just the left most place
+            column = random.choice(possible_columns)
+
+            option_label.grid(row=0, column=column, pady=5, padx=5)
+
+            option_labels_ref.append(option_label)
+
+            # removes it from the possible columns list, so there are
+            # no buttons that stack on top of each other
+            possible_columns.remove(column)
+
+        correct_button = option_labels_ref[0]
+        incorrect_button1 = option_labels_ref[1]
+        incorrect_button2 = option_labels_ref[2]
 
 
 # main routine
