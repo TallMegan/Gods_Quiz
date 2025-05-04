@@ -1,6 +1,7 @@
 import csv
 import random
 from tkinter import *
+from functools import partial  # to prevent unwanted windows
 
 
 def get_gods():
@@ -72,19 +73,22 @@ class Play:
 
             gm_labels_ref.append(make_label)
 
+        self.answer_label = gm_labels_ref[1]
+
         # makes the three option boxes
         self.options_frame = Frame(self.quiz_frame)
         self.options_frame.grid(padx=10, pady=10)
 
-        # text | font | correct/incorrect
+        # text | font | id
         options = [
-            [f"{correct_duty}", ("Arial", "12"), "correct"],
-            [f"{incorrect_1}", ("Arial", "12"), "incorrect"],
-            [f"{incorrect_2}", ("Arial", "12"), "incorrect"],
+            [f"{correct_duty}", ("Arial", "12"), "1"],
+            [f"{incorrect_1}", ("Arial", "12"), "2"],
+            [f"{incorrect_2}", ("Arial", "12"), "3"],
         ]
 
+        # stores the correct answer
         self.correct_answer = StringVar()
-        self.correct_answer.set(options[0][0])
+        self.correct_answer.set("1")
 
         # the possible columns the buttons could be in
         possible_columns = [0, 1, 2]
@@ -92,19 +96,19 @@ class Play:
         # create labels and add them to a reference list
         option_labels_ref = []
 
+        # checks the answer
         def answer_checker(button_pressed):
             self.correct_answer = self.correct_answer.get()
-            print(self.correct_answer)
-            print(button_pressed)
             if button_pressed == self.correct_answer:
-                print("correct")
+                self.answer_label.configure(text="Correct!", fg="#009900")
             else:
-                print("incorrect")
+                self.answer_label.configure(text="Incorrect!", fg="#990000")
 
+        # makes the buttons for the duties
         for count, item in enumerate(options):
             option_label = Button(self.options_frame, text=item[0], font=item[1],
                                   pady=10, padx=10, justify="left",
-                                  wraplength=350, command=lambda: answer_checker)
+                                  wraplength=350, command=partial(answer_checker, item[2]))
 
             # randomises the column so that the correct button will appear
             # in different places instead of just the left most place
