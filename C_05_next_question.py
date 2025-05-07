@@ -49,27 +49,32 @@ class Play:
         self.quiz_frame = Frame()
         self.quiz_frame.grid(padx=10, pady=10)
 
-        # stores the q_wanted and sets it to the q_num
+        # stores the variables
         # basically allows it to be passed between functions by using "(variable).get()"
-        q_wanted = IntVar()
-        q_wanted.set(q_num)
+        self.q_wanted = IntVar()
+        self.q_wanted.set(q_num)
+
+        self.q_answered = IntVar()
+        self.q_answered.set(0)
 
         god_name, correct_duty, incorrect_1, incorrect_2 = get_question_gods()
 
         # list of the game menu labels and their specifications (gm means game menu)
-        # text | font | justify
+        # text | font | row
         gm_labels = [
-            [f"{god_name}", ("Arial", "18", "bold")],
-            ["Select an Option below:", ("Arial", "14")],
+            [f"Question x / y", ("Arial", "18", "bold"), 0],
+            [f"{god_name}", ("Arial", "18", "bold"), 1],
+            ["Select an Option below:", ("Arial", "14"), 2],
         ]
 
         # create labels and add them to a reference list (mm means main menu)
         gm_labels_ref = []
+
         for count, item in enumerate(gm_labels):
             make_label = Label(self.quiz_frame, text=item[0], font=item[1],
                                pady=10, padx=10, justify="left",
                                wraplength=350)
-            make_label.grid(row=count)
+            make_label.grid(row=count, pady=10, padx=10)
 
             gm_labels_ref.append(make_label)
 
@@ -77,7 +82,7 @@ class Play:
 
         # makes the three option boxes
         self.options_frame = Frame(self.quiz_frame)
-        self.options_frame.grid(padx=10, pady=10, row=1)
+        self.options_frame.grid(padx=10, pady=10, row=3)
 
         # text | font | id
         options = [
@@ -136,8 +141,13 @@ class Play:
 
     # checks the answer
     def answer_checker(self, button_pressed, option_labels):
+        """
+        checks that the answer matches what is the correct answer based on their id.
+        basically each of the three buttons there is an id assigned to them (1, 2 and 3)
+        and the location of each button is randomized however, their id would remain the same
+        """
 
-        # compares the answer
+        # compares the answer based on their ids
         if button_pressed == option_labels[0][2]:
             self.answer_label.configure(text="Correct!", fg="#009900")
         else:
@@ -151,7 +161,12 @@ class Play:
         self.next_question.configure(state=NORMAL)
 
     def next_question(self):
-        pass
+
+        # retrieves the amount of questions the user has answered and played
+        self.q_wanted = self.q_wanted.get()
+        self.q_answered = self.q_answered.get()
+
+        # adds one to the questions answered
 
 
 # main routine
