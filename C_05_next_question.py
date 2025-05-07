@@ -77,7 +77,7 @@ class Play:
 
         # makes the three option boxes
         self.options_frame = Frame(self.quiz_frame)
-        self.options_frame.grid(padx=10, pady=10)
+        self.options_frame.grid(padx=10, pady=10, row=1)
 
         # text | font | id
         options = [
@@ -97,7 +97,6 @@ class Play:
             option_label = Button(self.options_frame, text=item[0], font=item[1],
                                   pady=10, padx=10, justify="left",
                                   wraplength=350, command=partial(self.answer_checker, item[2], options))
-
             # randomises the column so that the correct button will appear
             # in different places instead of just the left most place
             column = random.choice(possible_columns)
@@ -110,6 +109,31 @@ class Play:
             # no buttons that stack on top of each other
             possible_columns.remove(column)
 
+        # creating the frame
+        self.misc_button_frame = Frame(self.quiz_frame)
+        self.misc_button_frame.grid(padx=10, pady=10, row=2)
+
+        # frame | button | bg | command
+        misc_buttons = [
+            [self.misc_button_frame, "Next Question", "#add8e6", self.next_question]
+        ]
+
+        misc_button_ref = []
+
+        # makes the buttons for the duties
+        for item in misc_buttons:
+            misc_button = Button(item[0], text=item[1], font=("Arial", "16", "bold"),
+                                 bg=item[2], pady=10, padx=10, justify="left",
+                                 wraplength=350, command=item[3])
+            misc_button.grid(row=1, column=0, padx=5, pady=5)
+
+            misc_button_ref.append(misc_button)
+
+        # assigns the next question button to a variable and disables it
+        # so the user has to answer the question first before pressing "next question"
+        self.next_question = misc_button_ref[0]
+        self.next_question.config(state=DISABLED)
+
     # checks the answer
     def answer_checker(self, button_pressed, option_labels):
 
@@ -121,8 +145,13 @@ class Play:
 
         # disables all the buttons after a button was pressed/answer
         # was checked to prevent cheating
-        # for item in self.option_labels_ref:
-        #     item.configure(state=DISABLED)
+        for item in self.option_labels_ref:
+            item.configure(state=DISABLED)
+
+        self.next_question.configure(state=NORMAL)
+
+    def next_question(self):
+        pass
 
 
 # main routine
