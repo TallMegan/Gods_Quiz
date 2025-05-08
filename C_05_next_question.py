@@ -78,7 +78,9 @@ class Play:
 
             gm_labels_ref.append(make_label)
 
+        self.heading_label = gm_labels_ref[0]
         self.answer_label = gm_labels_ref[1]
+        self.option_label = gm_labels_ref[2]
 
         # makes the three option boxes
         self.options_frame = Frame(self.quiz_frame)
@@ -120,7 +122,7 @@ class Play:
 
         # frame | button | bg | command
         misc_buttons = [
-            [self.misc_button_frame, "Next Question", "#add8e6", self.next_question]
+            [self.misc_button_frame, "Next Question", "#add8e6", self.new_question]
         ]
 
         misc_button_ref = []
@@ -139,6 +141,9 @@ class Play:
         self.next_question = misc_button_ref[0]
         self.next_question.config(state=DISABLED)
 
+        # sets up the first question
+        self.new_question()
+
     # checks the answer
     def answer_checker(self, button_pressed, option_labels):
         """
@@ -156,18 +161,31 @@ class Play:
         # disables all the buttons after a button was pressed/answer
         # was checked to prevent cheating
         for item in self.option_labels_ref:
-            item.configure(state=DISABLED)
+            item.config(state=DISABLED)
 
-        self.next_question.configure(state=NORMAL)
-
-    def next_question(self):
-
-        # retrieves the amount of questions the user has answered and played
-        self.q_wanted = self.q_wanted.get()
-        self.q_answered = self.q_answered.get()
+        self.next_question.config(state=NORMAL)
 
         # adds one to the questions answered
+        q_answered = self.q_answered.get()
+        q_answered += 1
+        self.q_answered.set(q_answered)
 
+    def new_question(self):
+
+        self.next_question.config(state=DISABLED)
+        for item in self.option_labels_ref:
+            item.config(state=NORMAL)
+
+        # retrieves the amount of questions the user has answered and played
+        q_wanted = self.q_wanted.get()
+        self.q_wanted.set(q_wanted)
+
+        q_answered = self.q_answered.get()
+        self.q_answered.set(q_answered)
+
+        # update heading
+        self.heading_label.config(text=f"Round {q_answered + 1} of {q_wanted}")
+        self.answer_label.config(text="")
 
 # main routine
 if __name__ == "__main__":
