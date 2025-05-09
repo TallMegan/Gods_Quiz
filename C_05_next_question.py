@@ -22,6 +22,13 @@ def get_gods():
 
 
 def get_question_gods():
+    """
+    Gets the gods and assigns them to what they are meant for
+    God name to god name
+    Correct God Duty to Correct God Duty
+    etc
+    """
+
     for item in range(0, 3):
         incorrect_duties = []
         gods = get_gods()
@@ -57,8 +64,6 @@ class Play:
         self.q_answered = IntVar()
         self.q_answered.set(0)
 
-        god_name, correct_duty, incorrect_1, incorrect_2 = get_question_gods()
-
         self.label_frame = Frame(self.quiz_frame)
         self.label_frame.grid(padx=10, pady=10, row=0)
 
@@ -66,7 +71,7 @@ class Play:
         # text | font | row
         gm_labels = [
             [f"Question x / y", ("Arial", "18", "bold")],
-            [f"{god_name}", ("Arial", "18", "bold")],
+            [f"god name", ("Arial", "18", "bold")],
             ["Select an Option below:", ("Arial", "14")],
         ]
 
@@ -82,8 +87,8 @@ class Play:
             gm_labels_ref.append(make_label)
 
         self.heading_label = gm_labels_ref[0]
-        self.answer_label = gm_labels_ref[1]
-        self.god_label = gm_labels_ref[2]
+        self.god_label = gm_labels_ref[1]
+        self.answer_label = gm_labels_ref[2]
 
         # makes the three option boxes
         self.options_frame = Frame(self.quiz_frame)
@@ -91,9 +96,9 @@ class Play:
 
         # text | font | id
         options = [
-            [f"{correct_duty}", ("Arial", "12"), "1"],
-            [f"{incorrect_1}", ("Arial", "12"), "2"],
-            [f"{incorrect_2}", ("Arial", "12"), "3"],
+            [f"correct_duty", ("Arial", "12"), "1"],
+            [f"incorrect_1", ("Arial", "12"), "2"],
+            [f"incorrect_2", ("Arial", "12"), "3"],
         ]
 
         # the possible columns the buttons could be in
@@ -118,6 +123,10 @@ class Play:
             # removes it from the possible columns list, so there are
             # no buttons that stack on top of each other
             possible_columns.remove(column)
+
+        self.correct_duty = self.option_labels_ref[0]
+        self.incorrect1_duty = self.option_labels_ref[1]
+        self.incorrect2_duty = self.option_labels_ref[2]
 
         # creating the frame
         self.misc_button_frame = Frame(self.quiz_frame)
@@ -157,9 +166,9 @@ class Play:
 
         # compares the answer based on their ids
         if button_pressed == option_labels[0][2]:
-            self.answer_label.configure(text="Correct!", fg="#009900")
+            self.god_label.configure(text="Correct!", fg="#009900")
         else:
-            self.answer_label.configure(text="Incorrect!", fg="#990000")
+            self.god_label.configure(text="Incorrect!", fg="#990000")
 
         # disables all the buttons after a button was pressed/answer
         # was checked to prevent cheating
@@ -179,6 +188,8 @@ class Play:
         presses "next question"
         """
 
+        god_name, correct_duty, incorrect_1, incorrect_2 = get_question_gods()
+
         self.next_question.config(state=DISABLED)
         for item in self.option_labels_ref:
             item.config(state=NORMAL)
@@ -192,7 +203,18 @@ class Play:
 
         # update heading
         self.heading_label.config(text=f"Question {q_answered + 1} of {q_wanted}")
-        self.answer_label.config(text="")
+        self.god_label.config(text=f"{god_name}", fg="#000000")
+
+        # the duties that have been selected
+        options = [
+            [f"{correct_duty}"],
+            [f"{incorrect_1}"],
+            [f"{incorrect_2}"],
+        ]
+
+        self.correct_duty.config(text=options[0][0])
+        self.incorrect1_duty.config(text=options[1][0])
+        self.incorrect2_duty.config(text=options[2][0])
 
 
 # main routine
