@@ -59,19 +59,22 @@ class Play:
 
         god_name, correct_duty, incorrect_1, incorrect_2 = get_question_gods()
 
+        self.label_frame = Frame(self.quiz_frame)
+        self.label_frame.grid(padx=10, pady=10, row=0)
+
         # list of the game menu labels and their specifications (gm means game menu)
         # text | font | row
         gm_labels = [
-            [f"Question x / y", ("Arial", "18", "bold"), 0],
-            [f"{god_name}", ("Arial", "18", "bold"), 1],
-            ["Select an Option below:", ("Arial", "14"), 2],
+            [f"Question x / y", ("Arial", "18", "bold")],
+            [f"{god_name}", ("Arial", "18", "bold")],
+            ["Select an Option below:", ("Arial", "14")],
         ]
 
         # create labels and add them to a reference list (mm means main menu)
         gm_labels_ref = []
 
         for count, item in enumerate(gm_labels):
-            make_label = Label(self.quiz_frame, text=item[0], font=item[1],
+            make_label = Label(self.label_frame, text=item[0], font=item[1],
                                pady=10, padx=10, justify="left",
                                wraplength=350)
             make_label.grid(row=count, pady=10, padx=10)
@@ -80,11 +83,11 @@ class Play:
 
         self.heading_label = gm_labels_ref[0]
         self.answer_label = gm_labels_ref[1]
-        self.option_label = gm_labels_ref[2]
+        self.god_label = gm_labels_ref[2]
 
         # makes the three option boxes
         self.options_frame = Frame(self.quiz_frame)
-        self.options_frame.grid(padx=10, pady=10, row=3)
+        self.options_frame.grid(padx=10, pady=10)
 
         # text | font | id
         options = [
@@ -171,6 +174,10 @@ class Play:
         self.q_answered.set(q_answered)
 
     def new_question(self):
+        """
+        Changes the question and selects a new god and two new duties when the user
+        presses "next question"
+        """
 
         self.next_question.config(state=DISABLED)
         for item in self.option_labels_ref:
@@ -184,8 +191,9 @@ class Play:
         self.q_answered.set(q_answered)
 
         # update heading
-        self.heading_label.config(text=f"Round {q_answered + 1} of {q_wanted}")
+        self.heading_label.config(text=f"Question {q_answered + 1} of {q_wanted}")
         self.answer_label.config(text="")
+
 
 # main routine
 if __name__ == "__main__":
