@@ -94,11 +94,11 @@ class Play:
         self.options_frame = Frame(self.quiz_frame)
         self.options_frame.grid(padx=10, pady=10)
 
-        # text | font | id
+        # placeholder text
         options = [
-            [f"correct_duty", ("Arial", "12"), "1"],
-            [f"incorrect_1", ("Arial", "12"), "2"],
-            [f"incorrect_2", ("Arial", "12"), "3"],
+            [f"correct_duty"],
+            [f"incorrect_1"],
+            [f"incorrect_2"],
         ]
 
         # the possible columns the buttons could be in
@@ -109,7 +109,7 @@ class Play:
 
         # makes the buttons for the duties
         for count, item in enumerate(options):
-            option_label = Button(self.options_frame, text=item[0], font=item[1],
+            option_label = Button(self.options_frame, text=item[0], font=("Arial", "12"),
                                   pady=10, padx=10, justify="left",
                                   wraplength=350, command=partial(self.answer_checker, item[2], options))
             # randomises the column so that the correct button will appear
@@ -124,9 +124,9 @@ class Play:
             # no buttons that stack on top of each other
             possible_columns.remove(column)
 
-        self.correct_duty = self.option_labels_ref[0]
-        self.incorrect1_duty = self.option_labels_ref[1]
-        self.incorrect2_duty = self.option_labels_ref[2]
+        self.button_1 = self.option_labels_ref[0]
+        self.button_2 = self.option_labels_ref[1]
+        self.button_3 = self.option_labels_ref[2]
 
         # creating the frame
         self.misc_button_frame = Frame(self.quiz_frame)
@@ -212,9 +212,14 @@ class Play:
             [f"{incorrect_2}"],
         ]
 
-        self.correct_duty.config(text=options[0][0])
-        self.incorrect1_duty.config(text=options[1][0])
-        self.incorrect2_duty.config(text=options[2][0])
+        buttons = [self.button_1, self.button_2, self.button_3]
+
+        for count, item in enumerate(buttons):
+            new_duty = random.choice(options)
+            buttons[count].config(text=new_duty[0])
+            options.remove(new_duty)
+
+        print(f"{correct_duty}")
 
 
 # main routine
