@@ -53,6 +53,7 @@ class Play:
 
     def __init__(self, q_num):
 
+        self.correct_answer = None
         self.quiz_frame = Frame()
         self.quiz_frame.grid(padx=10, pady=10)
 
@@ -94,7 +95,7 @@ class Play:
         self.options_frame = Frame(self.quiz_frame)
         self.options_frame.grid(padx=10, pady=10)
 
-        # placeholder text
+        # placeholder text / id
         options = [
             [f"correct_duty"],
             [f"incorrect_1"],
@@ -109,9 +110,9 @@ class Play:
 
         # makes the buttons for the duties
         for count, item in enumerate(options):
-            option_label = Button(self.options_frame, text=item[0], font=("Arial", "12"),
+            option_label = Button(self.options_frame, text=item[0], font=("Arial", 12),
                                   pady=10, padx=10, justify="left",
-                                  wraplength=350, command=partial(self.answer_checker, item[2], options))
+                                  wraplength=350, command=partial(self.answer_checker, item[0], options[0][0]))
             # randomises the column so that the correct button will appear
             # in different places instead of just the left most place
             column = random.choice(possible_columns)
@@ -141,7 +142,7 @@ class Play:
 
         # makes the buttons for the duties
         for item in misc_buttons:
-            misc_button = Button(item[0], text=item[1], font=("Arial", "16", "bold"),
+            misc_button = Button(item[0], text=item[1], font=("Arial", 16, "bold"),
                                  bg=item[2], pady=10, padx=10, justify="left",
                                  wraplength=350, command=item[3])
             misc_button.grid(row=1, column=0, padx=5, pady=5)
@@ -165,7 +166,7 @@ class Play:
         """
 
         # compares the answer based on their ids
-        if button_pressed == option_labels[0][2]:
+        if button_pressed == option_labels:
             self.god_label.configure(text="Correct!", fg="#009900")
         else:
             self.god_label.configure(text="Incorrect!", fg="#990000")
@@ -212,12 +213,18 @@ class Play:
             [f"{incorrect_2}"],
         ]
 
+        columns = [1, 2, 3]
+
         buttons = [self.button_1, self.button_2, self.button_3]
 
         for count, item in enumerate(buttons):
             new_duty = random.choice(options)
+            column = random.choice(columns)
             buttons[count].config(text=new_duty[0])
+            buttons[count].grid(column=column)
+
             options.remove(new_duty)
+            columns.remove(column)
 
         print(f"{correct_duty}")
 
