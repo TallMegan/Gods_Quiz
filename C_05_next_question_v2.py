@@ -113,7 +113,7 @@ class Play:
         for count, item in enumerate(options):
             option_label = Button(self.options_frame, text=item[0], font=("Arial", 12),
                                   pady=10, padx=10, justify="left",
-                                  wraplength=350, command=partial(self.answer_checker, item[0]))
+                                  wraplength=350)
             # randomises the column so that the correct button will appear
             # in different places instead of just the left most place
             column = random.choice(possible_columns)
@@ -156,6 +156,10 @@ class Play:
         self.next_question = misc_button_ref[0]
         self.next_question.config(state=DISABLED)
 
+
+        # sets up the first question
+        self.new_question()
+
     def new_question(self):
         """
         Changes the question and selects a new god and two new duties when the user
@@ -197,7 +201,7 @@ class Play:
             # print(f"selected: {new_duty}")
             column = random.choice(columns)
             # print(f"column: {column}")
-            buttons[count].config(text=new_duty[0])
+            buttons[count].config(text=new_duty[0], command=partial(self.answer_checker, new_duty[0]))
             buttons[count].grid(column=column)
             # print(f"{count}")
 
@@ -206,15 +210,10 @@ class Play:
 
         print(f"{correct_duty}")
 
-        # sets up the first question
-        self.new_question()
-
     # checks the answer
     def answer_checker(self, button_pressed):
         """
-        checks that the answer matches what is the correct answer based on their id.
-        basically each of the three buttons there is an id assigned to them (1, 2 and 3)
-        and the location of each button is randomized however, their id would remain the same
+
         """
 
         correct_answer = self.correct_answer.get()
