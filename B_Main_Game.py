@@ -1,6 +1,7 @@
 import csv
 import random
 from tkinter import *
+from functools import partial
 
 
 def get_gods():
@@ -100,14 +101,14 @@ class StartGame:
         self.entry_area_frame = Frame(self.start_frame)
         self.entry_area_frame.grid(row=3)
 
-        self.num_questions_entry = Entry(self.entry_area_frame, font=("Arial", "20", "bold"),
+        self.num_questions_entry = Entry(self.entry_area_frame, font=("Arial", 20, "bold"),
                                          width=20)
         self.num_questions_entry.config(bg="#a9a9a9")
 
         # inserts the placeholder
         self.num_questions_entry.pack()
         self.num_questions_entry.insert(0, "How many questions would you like?")
-        self.num_questions_entry.configure(state=DISABLED)
+        self.num_questions_entry.config(state=DISABLED)
 
         # removes the placeholder
         self.on_click_id = self.num_questions_entry.bind('<Button-1>', on_click)
@@ -115,7 +116,7 @@ class StartGame:
         self.num_questions_entry.grid(row=0, column=0, padx=10, pady=10)
 
         # creates play button
-        self.play_button = Button(self.entry_area_frame, font=("Arial", "16", "bold"),
+        self.play_button = Button(self.entry_area_frame, font=("Arial", 16, "bold"),
                                   fg="#FFFFFF", bg="#0057D8", text="Play", width=10,
                                   command=self.check_question)
 
@@ -172,61 +173,197 @@ class Play:
         self.quiz_frame = Frame(self.quiz_box)
         self.quiz_frame.grid(padx=10, pady=10)
 
-        god_name, correct_duty, incorrect_1, incorrect_2 = get_question_gods()
+        # stores the variables
+        # basically allows it to be passed between functions by using "(variable).get()"
+        self.q_wanted = IntVar()
+        self.q_wanted.set(q_num)
+
+        self.q_answered = IntVar()
+        self.q_answered.set(0)
+
+        self.label_frame = Frame(self.quiz_frame)
+        self.label_frame.grid(padx=10, pady=10, row=0)
+
+        self.correct_answer = StringVar()
 
         # list of the game menu labels and their specifications (gm means game menu)
-        # text | font | justify
+        # text | font | row
         gm_labels = [
-            [f"{god_name}", ("Arial", "18", "bold")],
+            [f"Question x / y", ("Arial", "18", "bold")],
+            [f"god name", ("Arial", "18", "bold")],
             ["Select an Option below:", ("Arial", "14")],
         ]
 
         # create labels and add them to a reference list (mm means main menu)
         gm_labels_ref = []
+
         for count, item in enumerate(gm_labels):
-            make_label = Label(self.quiz_frame, text=item[0], font=item[1],
+            make_label = Label(self.label_frame, text=item[0], font=item[1],
                                pady=10, padx=10, justify="left",
                                wraplength=350)
-            make_label.grid(row=count)
+            make_label.grid(row=count, pady=10, padx=10)
 
             gm_labels_ref.append(make_label)
+
+        self.heading_label = gm_labels_ref[0]
+        self.god_label = gm_labels_ref[1]
+        self.answer_label = gm_labels_ref[2]
 
         # makes the three option boxes
         self.options_frame = Frame(self.quiz_frame)
         self.options_frame.grid(padx=10, pady=10)
 
-        # text | font
-        option_labels = [
-            [f"{correct_duty}", ("Arial", "12")],
-            [f"{incorrect_1}", ("Arial", "12")],
-            [f"{incorrect_2}", ("Arial", "12")],
+        # placeholder text / id
+        options = [
+            [f"correct_duty"],
+            [f"incorrect_1"],
+            [f"incorrect_2"],
         ]
 
         # the possible columns the buttons could be in
         possible_columns = [0, 1, 2]
 
         # create labels and add them to a reference list
-        option_labels_ref = []
-        for count, item in enumerate(option_labels):
-            option_label = Button(self.options_frame, text=item[0], font=item[1],
+        self.option_labels_ref = []
+
+        # creates the list for the buttons to be disabled later
+        # on once the game is completed
+        self.buttons_to_be_disabled = []
+
+        # makes the buttons for the duties
+        for count, item in enumerate(options):
+            option_label = Button(self.options_frame, text=item[0], font=("Arial", 12),
                                   pady=10, padx=10, justify="left",
                                   wraplength=350)
-
             # randomises the column so that the correct button will appear
             # in different places instead of just the left most place
             column = random.choice(possible_columns)
 
             option_label.grid(row=0, column=column, pady=5, padx=5)
 
-            option_labels_ref.append(option_label)
+            self.option_labels_ref.append(option_label)
+            self.buttons_to_be_disabled.append(option_label)
 
             # removes it from the possible columns list, so there are
             # no buttons that stack on top of each other
             possible_columns.remove(column)
 
-        correct_button = option_labels_ref[0]
-        incorrect_button1 = option_labels_ref[1]
-        incorrect_button2 = option_labels_ref[2]
+        self.button_1 = self.option_labels_ref[0]
+        self.button_2 = self.option_labels_ref[1]
+        self.button_3 = self.option_labels_ref[2]
+
+        # creating the frame
+        self.misc_button_frame = Frame(self.quiz_frame)
+        self.misc_button_frame.grid(padx=10, pady=10, row=2)
+
+        # frame | button | bg | command
+        misc_buttons = [
+            [self.misc_button_frame, "Next Question", "#add8e6", self.new_question]
+        ]
+
+        misc_button_ref = []
+
+        # makes the buttons for the duties
+        for item in misc_buttons:
+            misc_button = Button(item[0], text=item[1], font=("Arial", 16, "bold"),
+                                 bg=item[2], pady=10, padx=10, justify="left",
+                                 wraplength=350, command=item[3])
+            misc_button.grid(row=1, column=0, padx=5, pady=5)
+
+            misc_button_ref.append(misc_button)
+
+        # assigns the next question button to a variable and disables it
+        # so the user has to answer the question first before pressing "next question"
+        self.next_question = misc_button_ref[0]
+        self.next_question.config(state=DISABLED)
+        self.buttons_to_be_disabled.append(self.next_question)
+
+        # sets up the first question
+        self.new_question()
+
+    def new_question(self):
+        """
+        Changes the question and selects a new god and two new duties when the user
+        presses "next question"
+        """
+
+        god_name, correct_duty, incorrect_1, incorrect_2 = get_question_gods()
+
+        self.next_question.config(state=DISABLED)
+        for item in self.option_labels_ref:
+            item.config(state=NORMAL)
+
+        # retrieves the amount of questions the user has answered and played
+        q_wanted = self.q_wanted.get()
+        self.q_wanted.set(q_wanted)
+
+        q_answered = self.q_answered.get()
+        self.q_answered.set(q_answered)
+
+        # update heading
+        self.heading_label.config(text=f"Question {q_answered + 1} of {q_wanted}")
+        self.god_label.config(text=f"{god_name}", fg="#000000")
+
+        # the duties that have been selected
+        options = [
+            [f"{correct_duty}"],
+            [f"{incorrect_1}"],
+            [f"{incorrect_2}"],
+        ]
+
+        self.correct_answer.set(correct_duty)
+
+        columns = [1, 2, 3]
+
+        buttons = [self.button_1, self.button_2, self.button_3]
+
+        for count, item in enumerate(buttons):
+            new_duty = random.choice(options)
+            column = random.choice(columns)
+
+            buttons[count].config(text=new_duty[0], command=partial(self.answer_checker, new_duty[0]))
+            buttons[count].grid(column=column)
+
+            options.remove(new_duty)
+            columns.remove(column)
+
+        print(f"{correct_duty}")
+
+    # checks the answer
+    def answer_checker(self, button_pressed):
+        """
+        Gets the answer that was set in the new_question function and then
+        compares it to the button that was pressed and updates how many
+        questions the user has already answered
+        """
+
+        correct_answer = self.correct_answer.get()
+
+        # compares the answer based on their ids
+        if button_pressed == correct_answer:
+            self.god_label.configure(text="Correct!", fg="#009900")
+        else:
+            self.god_label.configure(text="Incorrect!", fg="#990000")
+
+        # disables all the buttons after a button was pressed/answer
+        # was checked to prevent cheating
+        for item in self.option_labels_ref:
+            item.config(state=DISABLED)
+
+        self.next_question.config(state=NORMAL)
+
+        # adds one to the questions answered
+        q_answered = self.q_answered.get()
+        q_wanted = self.q_wanted.get()
+
+        q_answered += 1
+        self.q_answered.set(q_answered)
+
+        if q_answered == q_wanted:
+            for item in self.buttons_to_be_disabled:
+                item.config(state=DISABLED)
+
+            self.heading_label.config(text="You made it to the End!")
 
 
 # main routine
