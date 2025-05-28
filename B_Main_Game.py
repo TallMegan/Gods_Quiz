@@ -369,6 +369,6 @@ class Play:
 # main routine
 if __name__ == "__main__":
     root = Tk()
-    root.title("Colour Quest")
+    root.title("Gods Quiz")
     StartGame()
     root.mainloop()
