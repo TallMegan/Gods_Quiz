@@ -109,6 +109,10 @@ class Play:
         # create labels and add them to a reference list
         self.option_labels_ref = []
 
+        # creates the list for the buttons to be disabled later
+        # on once the game is completed
+        self.buttons_to_be_disabled = []
+
         # makes the buttons for the duties
         for count, item in enumerate(options):
             option_label = Button(self.options_frame, text=item[0], font=("Arial", 12),
@@ -121,6 +125,7 @@ class Play:
             option_label.grid(row=0, column=column, pady=5, padx=5)
 
             self.option_labels_ref.append(option_label)
+            self.buttons_to_be_disabled.append(option_label)
 
             # removes it from the possible columns list, so there are
             # no buttons that stack on top of each other
@@ -129,7 +134,6 @@ class Play:
         self.button_1 = self.option_labels_ref[0]
         self.button_2 = self.option_labels_ref[1]
         self.button_3 = self.option_labels_ref[2]
-
 
         # creating the frame
         self.misc_button_frame = Frame(self.quiz_frame)
@@ -155,7 +159,7 @@ class Play:
         # so the user has to answer the question first before pressing "next question"
         self.next_question = misc_button_ref[0]
         self.next_question.config(state=DISABLED)
-
+        self.buttons_to_be_disabled.append(self.next_question)
 
         # sets up the first question
         self.new_question()
@@ -198,12 +202,10 @@ class Play:
 
         for count, item in enumerate(buttons):
             new_duty = random.choice(options)
-            # print(f"selected: {new_duty}")
             column = random.choice(columns)
-            # print(f"column: {column}")
+
             buttons[count].config(text=new_duty[0], command=partial(self.answer_checker, new_duty[0]))
             buttons[count].grid(column=column)
-            # print(f"{count}")
 
             options.remove(new_duty)
             columns.remove(column)
@@ -213,7 +215,9 @@ class Play:
     # checks the answer
     def answer_checker(self, button_pressed):
         """
-
+        Gets the answer that was set in the new_question function and then
+        compares it to the button that was pressed and updates how many
+        questions the user has already answered
         """
 
         correct_answer = self.correct_answer.get()
@@ -233,8 +237,17 @@ class Play:
 
         # adds one to the questions answered
         q_answered = self.q_answered.get()
+        q_wanted = self.q_wanted.get()
+
         q_answered += 1
         self.q_answered.set(q_answered)
+
+        if q_answered == q_wanted:
+            for item in self.buttons_to_be_disabled:
+                item.config(state=DISABLED)
+
+            self.heading_label.config(text="You made it to the End!")
+
 
 # main routine
 if __name__ == "__main__":
