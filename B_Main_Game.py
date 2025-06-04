@@ -248,6 +248,7 @@ class Play:
             # no buttons that stack on top of each other
             possible_columns.remove(column)
 
+        # assigns each button a variable
         self.button_1 = self.option_labels_ref[0]
         self.button_2 = self.option_labels_ref[1]
         self.button_3 = self.option_labels_ref[2]
@@ -383,6 +384,8 @@ class Help:
 
     def __init__(self, partner):
 
+        # disables the help button
+        # prevents the user from creating multiple help button windows
         partner.help_button.config(state=DISABLED)
 
         self.help_box = Toplevel()
@@ -391,6 +394,7 @@ class Help:
         # 'releases' help button
         self.help_box.protocol('WM_DELETE_WINDOW', partial(self.close_help, partner))
 
+        # creates the help / info window
         self.help_frame = Frame(self.help_box, width=300, height=200)
         self.help_frame.grid(padx=10, pady=10)
 
@@ -412,6 +416,7 @@ class Help:
                                      justify="left")
         self.help_text_label.grid(row=1, padx=10)
 
+        # creates the dismiss button
         self.dismiss_button = Button(self.help_frame,
                                      font=("Arial", 12, "bold"),
                                      text="Dismiss", bg="#CC6600",
@@ -419,20 +424,26 @@ class Help:
                                      command=partial(self.close_help, partner), height=2, width=20)
         self.dismiss_button.grid(row=2, padx=10, pady=10)
 
+        # creates a list of buttons to recolour to have an orange background
         recolour_list = [self.help_frame, self.help_heading_label,
                          self.help_text_label, self.help_box]
 
         background = "#FFE6CC"
 
+        # recolours all the components
         for item in recolour_list:
             item.config(bg=background)
 
+    # closes help window
     def close_help(self, partner):
         """
         Closes help dialogue box
         """
+
+        # enables the help button again
         partner.help_button.config(state=NORMAL)
 
+        # destroys the help window
         self.help_box.destroy()
 
 # main routine
