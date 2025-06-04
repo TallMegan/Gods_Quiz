@@ -256,27 +256,32 @@ class Play:
         self.misc_button_frame = Frame(self.quiz_frame)
         self.misc_button_frame.grid(padx=10, pady=10, row=2)
 
+        # the list of misc buttons e.g. next question/help
         # frame | button | bg | command
         misc_buttons = [
-            [self.misc_button_frame, "Next Question", "#add8e6", self.new_question]
+            [self.misc_button_frame, "Next Question", "#add8e6", self.new_question],
+            [self.misc_button_frame, "Help / Info", "#FF8000", self.to_help]
         ]
 
         misc_button_ref = []
 
         # makes the buttons for the duties
-        for item in misc_buttons:
+        for count, item in enumerate(misc_buttons):
             misc_button = Button(item[0], text=item[1], font=("Arial", 16, "bold"),
                                  bg=item[2], pady=10, padx=10, justify="left",
                                  wraplength=350, command=item[3])
-            misc_button.grid(row=1, column=0, padx=5, pady=5)
+            misc_button.grid(row=0, column=count, padx=5, pady=5)
 
             misc_button_ref.append(misc_button)
+            self.buttons_to_be_disabled.append(misc_button)
 
         # assigns the next question button to a variable and disables it
         # so the user has to answer the question first before pressing "next question"
         self.next_question = misc_button_ref[0]
         self.next_question.config(state=DISABLED)
-        self.buttons_to_be_disabled.append(self.next_question)
+
+        # assigns the help / info button to a variable
+        self.help_button = misc_button_ref[1]
 
         # sets up the first question
         self.new_question()
@@ -287,6 +292,7 @@ class Play:
         presses "next question"
         """
 
+        # gets the gods name, duties and two incorrect duties
         god_name, correct_duty, incorrect_1, incorrect_2 = get_question_gods()
 
         self.next_question.config(state=DISABLED)
@@ -313,10 +319,13 @@ class Play:
 
         self.correct_answer.set(correct_duty)
 
+        # the buttons and possible columns
         columns = [1, 2, 3]
-
         buttons = [self.button_1, self.button_2, self.button_3]
 
+        # configures the pre-made buttons and adds the answer checker command
+        # it also re-randomizes the button layout so they correct answer
+        # will always be in a random spot
         for count, item in enumerate(buttons):
             new_duty = random.choice(options)
             column = random.choice(columns)
@@ -355,16 +364,76 @@ class Play:
         # adds one to the questions answered
         q_answered = self.q_answered.get()
         q_wanted = self.q_wanted.get()
-
         q_answered += 1
         self.q_answered.set(q_answered)
 
+        # disables all the buttons once the user
+        # has answered all the questions they wanted
         if q_answered == q_wanted:
             for item in self.buttons_to_be_disabled:
                 item.config(state=DISABLED)
 
             self.heading_label.config(text="You made it to the End!")
 
+    def to_help(self):
+
+        Help(self)
+
+class Help:
+
+    def __init__(self, partner):
+
+        partner.help_button.config(state=DISABLED)
+
+        self.help_box = Toplevel()
+
+        # if users press cross at top, closes help and
+        # 'releases' help button
+        self.help_box.protocol('WM_DELETE_WINDOW', partial(self.close_help, partner))
+
+        self.help_frame = Frame(self.help_box, width=300, height=200)
+        self.help_frame.grid(padx=10, pady=10)
+
+        self.help_heading_label = Label(self.help_frame, text="Help / Info",
+                                        font=("Arial", 18, "bold"))
+        self.help_heading_label.grid(row=0)
+
+        help_text = ("- There will be a randomly selected god and 3 buttons will appear\n\n"
+                     "- 2 of them will be 2 random god's jobs/duties and 1 will be the correct one for the god "
+                     " that was randomly selected.\n\n"
+                     "- Your job is to select the right one.\n\n"
+                     "- Then press the next question button and we will randomly select another god and 3 duties.\n\n"
+                     "- Once it has been however many questions you had wanted, the game will end and you can see your "
+                     " stats by pressing the stats button "
+                     "")
+
+        self.help_text_label = Label(self.help_frame, text=help_text,
+                                     font=("Arial", 12), wraplength=350,
+                                     justify="left")
+        self.help_text_label.grid(row=1, padx=10)
+
+        self.dismiss_button = Button(self.help_frame,
+                                     font=("Arial", 12, "bold"),
+                                     text="Dismiss", bg="#CC6600",
+                                     fg="#FFFFFF",
+                                     command=partial(self.close_help, partner), height=2, width=20)
+        self.dismiss_button.grid(row=2, padx=10, pady=10)
+
+        recolour_list = [self.help_frame, self.help_heading_label,
+                         self.help_text_label, self.help_box]
+
+        background = "#FFE6CC"
+
+        for item in recolour_list:
+            item.config(bg=background)
+
+    def close_help(self, partner):
+        """
+        Closes help dialogue box
+        """
+        partner.help_button.config(state=NORMAL)
+
+        self.help_box.destroy()
 
 # main routine
 if __name__ == "__main__":
