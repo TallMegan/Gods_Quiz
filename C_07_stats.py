@@ -129,35 +129,43 @@ class Play:
 
     def __init__(self, q_wanted):
 
+        # self.correct_answers = IntVar()
+        self.q_answered = 10
+        self.correct_answers = ["3", "3", "3", "3", "3", "3", "3", "3"]
+
         self.q_wanted = q_wanted
+        print(q_wanted)
 
         self.quiz_box = Toplevel()
 
         self.quiz_frame = Frame(self.quiz_box)
         self.quiz_frame.grid(padx=10, pady=10)
 
-        # creates the to_help button
+        # creates the to_stats button
         self.stats_button = Button(self.quiz_frame, font=("Arial", 14, "bold"),
                                    text="Stats", width=15, fg="#FFFFFF",
-                                   bg="#FF8000", padx=10, pady=10, command=self.to_stats)
+                                   bg="#FF8000", padx=10, pady=10, command=partial(self.to_stats, q_wanted))
         self.stats_button.grid()
 
-
-    def to_stats(self):
-
-        Stats(self)
-
+    def to_stats(self, q_wanted):
+        # correct_answers = self.correct_answers.get
+        all_stats_info = [self.q_answered, self.correct_answers]
+        Stats(self, all_stats_info)
 
 class Stats:
 
-    def __init__(self, partner):
+    def __init__(self, all_stats_info, partner):
 
-        partner.stats_button.config(state=DISABLED)
+        # retrieves the stats info
+        q_answered = all_stats_info[0]
+        correct_answers = len(all_stats_info[1])
+
+        # partner.stats_button.config(state=DISABLED)
 
         self.stats_box = Toplevel()
 
-        # if users press cross at top, closes help and
-        # 'releases' help button
+        # if users press cross at top, closes stats and
+        # 'releases' stats button
         self.stats_box.protocol('WM_DELETE_WINDOW', partial(self.close_stats, partner))
 
         self.stats_frame = Frame(self.stats_box, width=300, height=200)
@@ -167,7 +175,9 @@ class Stats:
                                          font=("Arial", 18, "bold"))
         self.stats_heading_label.grid(row=0)
 
-        stats_text = ("Questions Answered: ")
+        stats_text = (f"\nQuestions Correct: {correct_answers} / {q_answered} \n\n"
+                      f"Correct Percentage: {correct_answers / q_answered * 100}% \n\n"
+                      f"Highest Streak: #\n\n")
 
         self.stats_text_label = Label(self.stats_frame, text=stats_text,
                                       font=("Arial", 12), wraplength=350,
@@ -191,9 +201,9 @@ class Stats:
 
     def close_stats(self, partner):
         """
-        Closes help dialogue box
+        Closes stats dialogue box
         """
-        partner.stats_button.config(state=NORMAL)
+        # partner.stats_button.config(state=NORMAL)
 
         self.stats_box.destroy()
 
