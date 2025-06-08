@@ -131,7 +131,7 @@ class Play:
 
         # self.correct_answers = IntVar()
         self.q_answered = 10
-        self.correct_answers = ["3", "3", "3", "3", "3", "3", "3", "3"]
+        self.correct_answers = 6
 
         self.q_wanted = q_wanted
         print(q_wanted)
@@ -149,7 +149,7 @@ class Play:
 
     def to_stats(self, q_wanted):
         # correct_answers = self.correct_answers.get
-        all_stats_info = [self.q_answered, self.correct_answers]
+        all_stats_info = [self.q_answered, self.correct_answers, q_wanted]
         Stats(self, all_stats_info)
 
 class Stats:
@@ -158,7 +158,7 @@ class Stats:
 
         # retrieves the stats info
         q_answered = all_stats_info[0]
-        correct_answers = len(all_stats_info[1])
+        correct_answers = all_stats_info[1]
 
         # partner.stats_button.config(state=DISABLED)
 
