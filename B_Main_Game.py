@@ -181,6 +181,9 @@ class Play:
         self.q_answered = IntVar()
         self.q_answered.set(0)
 
+        self.correct_answers = IntVar()
+        self.correct_answers.set(0)
+
         self.label_frame = Frame(self.quiz_frame)
         self.label_frame.grid(padx=10, pady=10, row=0)
 
@@ -261,7 +264,8 @@ class Play:
         # frame | button | bg | command
         misc_buttons = [
             [self.misc_button_frame, "Next Question", "#add8e6", self.new_question],
-            [self.misc_button_frame, "Help / Info", "#FF8000", self.to_help]
+            [self.misc_button_frame, "Help / Info", "#FF8000", self.to_help],
+            [self.misc_button_frame, "Stats", "#FF8000", partial(self.to_stats, self.q_wanted)]
         ]
 
         misc_button_ref = []
@@ -284,8 +288,24 @@ class Play:
         # assigns the help / info button to a variable
         self.help_button = misc_button_ref[1]
 
+        # assigns the stats button to a variable
+        self.stats_button = misc_button_ref[2]
+        self.stats_button.config(state=DISABLED)
+
         # sets up the first question
         self.new_question()
+
+    def __getitem__(self, key):
+        """
+        Makes the all_stats_info retrievable
+        """
+
+        q_answered = self.q_answered.get()
+        correct_answers = self.correct_answers.get()
+
+        all_stats_info = [q_answered, correct_answers]
+
+        return all_stats_info
 
     def new_question(self):
         """
@@ -337,6 +357,10 @@ class Play:
             options.remove(new_duty)
             columns.remove(column)
 
+        # enables the stats button as
+        # there is now data to work with
+        self.stats_button.config(state=NORMAL)
+
         print(f"{correct_duty}")
 
     # checks the answer
@@ -377,8 +401,16 @@ class Play:
             self.heading_label.config(text="You made it to the End!")
 
     def to_help(self):
-
+        """
+        Invokes the help class
+        """
         Help(self)
+
+    def to_stats(self, all_stats_info):
+        """
+        Invokes the stats class
+        """
+        Stats(self, all_stats_info)
 
 class Help:
 
@@ -445,6 +477,65 @@ class Help:
 
         # destroys the help window
         self.help_box.destroy()
+
+class Stats:
+
+    def __init__(self, all_stats_info, partner):
+
+        # prevents the user from being able
+        # to open multiple stats windows
+        partner.stats_button.config(state=DISABLED)
+
+        # retrieves the stats info
+        q_answered = all_stats_info[0][0]
+        correct_answers = all_stats_info[0][1]
+
+        # partner.stats_button.config(state=DISABLED)
+
+        self.stats_box = Toplevel()
+
+        # if users press cross at top, closes stats and
+        # 'releases' stats button
+        self.stats_box.protocol('WM_DELETE_WINDOW', partial(self.close_stats, partner))
+
+        self.stats_frame = Frame(self.stats_box, width=300, height=200)
+        self.stats_frame.grid(padx=10, pady=10)
+
+        self.stats_heading_label = Label(self.stats_frame, text="Quiz Statistics",
+                                         font=("Arial", 18, "bold"))
+        self.stats_heading_label.grid(row=0)
+
+        stats_text = (f"\nQuestions Correct: {correct_answers} / {q_answered} \n\n"
+                      f"Correct Percentage: {correct_answers / q_answered * 100}% \n\n"
+                      f"Highest Streak: #\n\n")
+
+        self.stats_text_label = Label(self.stats_frame, text=stats_text,
+                                      font=("Arial", 12), wraplength=350,
+                                      justify="left")
+        self.stats_text_label.grid(row=1, padx=10)
+
+        self.dismiss_button = Button(self.stats_frame,
+                                     font=("Arial", 12, "bold"),
+                                     text="Dismiss", bg="#CC6600",
+                                     fg="#FFFFFF",
+                                     command=partial(self.close_stats, partner), height=2, width=20)
+        self.dismiss_button.grid(row=2, padx=10, pady=10)
+
+        recolour_list = [self.stats_frame, self.stats_heading_label,
+                         self.stats_text_label, self.stats_box]
+
+        background = "#FFE6CC"
+
+        for item in recolour_list:
+            item.config(bg=background)
+
+    def close_stats(self, partner):
+        """
+        Closes stats dialogue box
+        """
+        partner.stats_button.config(state=NORMAL)
+
+        self.stats_box.destroy()
 
 # main routine
 if __name__ == "__main__":
