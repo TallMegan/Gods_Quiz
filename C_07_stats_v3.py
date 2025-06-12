@@ -175,6 +175,8 @@ class Play:
 
         # stores the variables
         # basically allows it to be passed between functions by using "(variable).get()"
+        self.correct_answer = StringVar()
+
         self.q_wanted = IntVar()
         self.q_wanted.set(q_num)
 
@@ -184,10 +186,14 @@ class Play:
         self.correct_answers = IntVar()
         self.correct_answers.set(0)
 
+        # sets up the correct answer streak stat
+        self.correct_streak = IntVar()
+        self.correct_streak.set(0)
+
         self.label_frame = Frame(self.quiz_frame)
         self.label_frame.grid(padx=10, pady=10, row=0)
 
-        self.correct_answer = StringVar()
+
 
         # list of the game menu labels and their specifications (gm means game menu)
         # text | font | row
@@ -275,14 +281,13 @@ class Play:
                                  bg=item[2], pady=10, padx=10, justify="left",
                                  wraplength=350, command=item[3])
             misc_button.grid(row=0, column=count, padx=5, pady=5)
-
             misc_button_ref.append(misc_button)
-            self.buttons_to_be_disabled.append(misc_button)
 
         # assigns the next question button to a variable and disables it
         # so the user has to answer the question first before pressing "next question"
         self.next_question = misc_button_ref[0]
         self.next_question.config(state=DISABLED)
+        self.buttons_to_be_disabled.append(self.next_question)
 
         # assigns the stats button to a variable
         self.stats_button = misc_button_ref[1]
@@ -299,7 +304,14 @@ class Play:
         q_answered = self.q_answered.get()
         correct_answers = self.correct_answers.get()
 
-        all_stats_info = [q_answered, correct_answers, self.stats_button]
+        # sorts the streak list from highest to lowest
+        # in order to get the highest streak attained by the user
+        self.correct_streak_list.sort()
+        print(self.correct_streak_list)
+
+        print(correct_answers)
+
+        all_stats_info = [q_answered, correct_answers, self.correct_streak_list[0], self.stats_button]
 
         return all_stats_info
 
@@ -334,6 +346,7 @@ class Play:
             [f"{incorrect_2}"],
         ]
 
+        # gets the correct answer
         self.correct_answer.set(correct_duty)
 
         # the buttons and possible columns
@@ -368,6 +381,10 @@ class Play:
         questions the user has already answered
         """
 
+        correct_streak = self.correct_streak.get()
+
+        self.correct_streak_list = []
+
         # gets the correct answer and
         # num of correct answers so far
         correct_answer = self.correct_answer.get()
@@ -381,8 +398,19 @@ class Play:
             correct_answers += 1
             self.correct_answers.set(correct_answers)
 
+            # adds 1 to the correct answer streak
+            correct_streak += 1
+            self.correct_streak.set(correct_streak)
+
         else:
             self.god_label.configure(text="Incorrect!", fg="#990000")
+
+            # resets the correct streak but adds it to a list
+            # makes it, so I can sort from highest to lowest to find
+            # the highest streak the user had done
+            self.correct_streak_list.append(self.correct_streak)
+            self.correct_streak.set(0)
+
 
         # disables all the buttons after a button was pressed/answer
         # was checked to prevent cheating
@@ -420,7 +448,8 @@ class Stats:
         # retrieves the stats info
         q_answered = stats_bundle[0][0]
         correct_answers = stats_bundle[0][1]
-        self.stats_button = stats_bundle[0][2]
+        highest_streak = stats_bundle[0][2]
+        self.stats_button = stats_bundle[0][3]
 
         # prevents the user from being able
         # to open multiple stats windows
@@ -441,7 +470,7 @@ class Stats:
 
         stats_text = (f"\nQuestions Correct: {correct_answers} / {q_answered} \n\n"
                       f"Correct Percentage: {correct_answers / q_answered * 100}% \n\n"
-                      f"Highest Streak: #\n\n")
+                      f"Highest Streak: {highest_streak}\n\n")
 
         self.stats_text_label = Label(self.stats_frame, text=stats_text,
                                       font=("Arial", 12), wraplength=350,
