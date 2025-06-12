@@ -163,6 +163,7 @@ class StartGame:
             # removes the placeholder
             self.on_click_id = self.num_questions_entry.bind('<Button-1>')
 
+
 class Play:
 
     def __init__(self, q_num):
@@ -411,71 +412,6 @@ class Play:
         """
         Stats(self, stats_bundle)
 
-class Help:
-
-    def __init__(self, partner):
-
-        # disables the help button
-        # prevents the user from creating multiple help button windows
-        partner.help_button.config(state=DISABLED)
-
-        self.help_box = Toplevel()
-
-        # if users press cross at top, closes help and
-        # 'releases' help button
-        self.help_box.protocol('WM_DELETE_WINDOW', partial(self.close_help, partner))
-
-        # creates the help / info window
-        self.help_frame = Frame(self.help_box, width=300, height=200)
-        self.help_frame.grid(padx=10, pady=10)
-
-        self.help_heading_label = Label(self.help_frame, text="Help / Info",
-                                        font=("Arial", 18, "bold"))
-        self.help_heading_label.grid(row=0)
-
-        help_text = ("- There will be a randomly selected god and 3 buttons will appear\n\n"
-                     "- 2 of them will be 2 random god's jobs/duties and 1 will be the correct one for the god "
-                     " that was randomly selected.\n\n"
-                     "- Your job is to select the right one.\n\n"
-                     "- Then press the next question button and we will randomly select another god and 3 duties.\n\n"
-                     "- Once it has been however many questions you had wanted, the game will end and you can see your "
-                     " stats by pressing the stats button "
-                     "")
-
-        self.help_text_label = Label(self.help_frame, text=help_text,
-                                     font=("Arial", 12), wraplength=350,
-                                     justify="left")
-        self.help_text_label.grid(row=1, padx=10)
-
-        # creates the dismiss button
-        self.dismiss_button = Button(self.help_frame,
-                                     font=("Arial", 12, "bold"),
-                                     text="Dismiss", bg="#CC6600",
-                                     fg="#FFFFFF",
-                                     command=partial(self.close_help, partner), height=2, width=20)
-        self.dismiss_button.grid(row=2, padx=10, pady=10)
-
-        # creates a list of buttons to recolour to have an orange background
-        recolour_list = [self.help_frame, self.help_heading_label,
-                         self.help_text_label, self.help_box]
-
-        background = "#FFE6CC"
-
-        # recolours all the components
-        for item in recolour_list:
-            item.config(bg=background)
-
-    # closes help window
-    def close_help(self, partner):
-        """
-        Closes help dialogue box
-        """
-
-        # enables the help button again
-        partner.help_button.config(state=NORMAL)
-
-        # destroys the help window
-        self.help_box.destroy()
 
 class Stats:
 
