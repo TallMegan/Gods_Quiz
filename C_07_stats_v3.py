@@ -55,7 +55,7 @@ class StartGame:
         # upon user clicking the entry box,
         # it removes the placeholder
         def on_click(event):
-            self.num_questions_entry.config(state=NORMAL)
+            self.num_questions_entry.config(state='normal')
             self.num_questions_entry.delete(0, END)
 
             # make the callback only work once
@@ -108,7 +108,7 @@ class StartGame:
         # inserts the placeholder
         self.num_questions_entry.pack()
         self.num_questions_entry.insert(0, "How many questions would you like?")
-        self.num_questions_entry.config(state=DISABLED)
+        self.num_questions_entry.config(state='disabled')
 
         # removes the placeholder
         self.on_click_id = self.num_questions_entry.bind('<Button-1>', on_click)
@@ -168,6 +168,8 @@ class Play:
 
     def __init__(self, q_num):
 
+        self.length_of_streaks = []
+        self.correct_streak_list = []
         self.quiz_box = Toplevel()
 
         self.quiz_frame = Frame(self.quiz_box)
@@ -306,12 +308,11 @@ class Play:
 
         # sorts the streak list from highest to lowest
         # in order to get the highest streak attained by the user
-        self.correct_streak_list.sort()
         print(self.correct_streak_list)
 
         print(correct_answers)
 
-        all_stats_info = [q_answered, correct_answers, self.correct_streak_list[0], self.stats_button]
+        all_stats_info = [q_answered, correct_answers, self.length_of_streaks[-1], self.stats_button]
 
         return all_stats_info
 
@@ -383,8 +384,6 @@ class Play:
 
         correct_streak = self.correct_streak.get()
 
-        self.correct_streak_list = []
-
         # gets the correct answer and
         # num of correct answers so far
         correct_answer = self.correct_answer.get()
@@ -401,6 +400,7 @@ class Play:
             # adds 1 to the correct answer streak
             correct_streak += 1
             self.correct_streak.set(correct_streak)
+            self.correct_streak_list.append(correct_streak)
 
         else:
             self.god_label.configure(text="Incorrect!", fg="#990000")
@@ -408,7 +408,15 @@ class Play:
             # resets the correct streak but adds it to a list
             # makes it, so I can sort from highest to lowest to find
             # the highest streak the user had done
-            self.correct_streak_list.append(self.correct_streak)
+            length_of_streak = len(self.correct_streak_list)
+
+            self.length_of_streaks.append(length_of_streak)
+            self.length_of_streaks.sort()
+
+            for item in self.correct_streak_list:
+                self.correct_streak_list.remove(item)
+
+            print(self.length_of_streaks)
             self.correct_streak.set(0)
 
 
