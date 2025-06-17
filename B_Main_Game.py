@@ -137,9 +137,6 @@ class StartGame:
 
             if q_wanted > 0:
                 self.num_questions_entry.delete(0, END)
-                # temporary success message, replace with call to PlayGame class
-                self.choose_label.config(fg="#009900", font=("Arial", "12", "bold"),
-                                         text=f"You have chosen to play {q_wanted} question/s")
                 self.num_questions_entry.config(bg="#a9a9a9")
                 Play(q_wanted)
 
@@ -266,14 +263,16 @@ class Play:
         self.button_3 = self.option_labels_ref[2]
 
         # creating the frame
-        self.misc_button_frame = Frame(self.quiz_frame)
-        self.misc_button_frame.grid(padx=10, pady=10, row=2)
+        self.help_stats_frame = Frame(self.quiz_frame)
+        self.help_stats_frame.grid(padx=5, pady=10, row=3)
 
         # the list of misc buttons e.g. next question/help
-        # frame | button | bg | command
+        # frame | button | bg | command | row | column | width
         misc_buttons = [
-            [self.misc_button_frame, "Next Question", "#add8e6", self.new_question],
-            [self.misc_button_frame, "Stats", "#FF8000", partial(self.to_stats, self.q_wanted)]
+            [self.quiz_frame, "Next Question", "#add8e6", self.new_question, 2, 0, 21],
+            [self.help_stats_frame, "Help", "#FF8000", self.to_help, 0, 0, 9],
+            [self.help_stats_frame, "Stats", "#FF8000", partial(self.to_stats, self.q_wanted), 0, 1, 9],
+            [self.quiz_frame, "To Start", "#FF7F7F", self.to_start, 4, 0, 21]
         ]
 
         misc_button_ref = []
@@ -282,8 +281,8 @@ class Play:
         for count, item in enumerate(misc_buttons):
             misc_button = Button(item[0], text=item[1], font=("Arial", 16, "bold"),
                                  bg=item[2], pady=10, padx=10, justify="left",
-                                 wraplength=350, command=item[3])
-            misc_button.grid(row=0, column=count, padx=5, pady=5)
+                                 wraplength=350, width=item[6], command=item[3])
+            misc_button.grid(row=item[4], column=item[5], padx=5, pady=5)
             misc_button_ref.append(misc_button)
 
         # assigns the next question button to a variable and disables it
@@ -292,8 +291,11 @@ class Play:
         self.next_question.config(state=DISABLED)
         self.buttons_to_be_disabled.append(self.next_question)
 
+        # assigns the help button to a variable
+        self.help_button = misc_button_ref[1]
+
         # assigns the stats button to a variable
-        self.stats_button = misc_button_ref[1]
+        self.stats_button = misc_button_ref[2]
         self.stats_button.config(state=DISABLED)
 
         # sets up the first question
@@ -318,7 +320,7 @@ class Play:
         """
 
         # gets the gods name, duties and two incorrect duties
-        god_name, correct_duty, incorrect_1, incorrect_2 = ["test", 1, 2, 3]
+        god_name, correct_duty, incorrect_1, incorrect_2 = get_question_gods()
 
         self.next_question.config(state=DISABLED)
         for item in self.option_labels_ref:
@@ -438,11 +440,18 @@ class Play:
 
             self.heading_label.config(text="You made it to the End!")
 
+    def to_help(self):
+        Help(self)
+
     def to_stats(self, stats_bundle):
         """
         Invokes the stats class
         """
         Stats(self, stats_bundle)
+
+    def to_start(self):
+        StartGame()
+        root.destroy()
 
 class Help:
 
