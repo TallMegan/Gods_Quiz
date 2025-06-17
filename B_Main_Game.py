@@ -22,6 +22,10 @@ def get_gods():
 
 
 def get_question_gods():
+    """
+    gets the gods and sorts them into their correct lists
+    and what button they should be allocated to
+    """
     for item in range(0, 3):
         incorrect_duties = []
         gods = get_gods()
@@ -41,6 +45,18 @@ def get_question_gods():
 
         return god_name, correct_duty, incorrect_duty_1, incorrect_duty_2
 
+def recolour(list, colour):
+    """
+    recolours all the components inside
+    the list to a specific colour
+    """
+
+    recolour_list = list
+    background = colour
+
+    # recolours all the components
+    for item in recolour_list:
+        item.config(bg=background)
 
 class StartGame:
     """
@@ -298,6 +314,13 @@ class Play:
         self.stats_button = misc_button_ref[2]
         self.stats_button.config(state=DISABLED)
 
+        # creates a list of buttons to recolour to have an orange background
+        recolour_list = [self.quiz_frame, self.label_frame, self.help_stats_frame,
+                         self.options_frame, self.heading_label]
+
+        # recolours the buttons
+        recolour(recolour_list, "#DAE8FC")
+
         # sets up the first question
         self.new_question()
 
@@ -501,11 +524,8 @@ class Help:
         recolour_list = [self.help_frame, self.help_heading_label,
                          self.help_text_label, self.help_box]
 
-        background = "#FFE6CC"
-
-        # recolours all the components
-        for item in recolour_list:
-            item.config(bg=background)
+        # recolours the buttons
+        recolour(recolour_list, "#FFE6CC")
 
     # closes help window
     def close_help(self, partner):
