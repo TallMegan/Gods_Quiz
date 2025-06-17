@@ -218,13 +218,7 @@ class Play:
         otherwise highest streak will remain the same
         """
 
-        if current > highest:
-            highest = current
-        else:
-            highest = highest
-
-        return highest
-
+        return max(current, highest)
 
     def answer_checker(self, button_pressed):
         """

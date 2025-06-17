@@ -65,7 +65,7 @@ class StartGame:
         self.start_frame.grid()
 
         # strings for labels
-        intro_string = "Welcome to my quiz about Green and Roman Gods!" \
+        intro_string = "Welcome to my quiz about Greek and Roman Gods!" \
                        " Every round there will be a randomly selected god and 3 buttons" \
                        " will appear, 2 of them will be 2 random god's" \
                        " jobs/duties and 1 will be the correct one for the god that was " \
@@ -167,8 +167,7 @@ class Play:
 
     def __init__(self, q_num):
 
-        self.length_of_streaks = []
-        self.correct_streak_list = []
+        # creates the play window
         self.quiz_box = Toplevel()
         self.quiz_frame = Frame(self.quiz_box)
         self.quiz_frame.grid(padx=10, pady=10)
@@ -195,10 +194,9 @@ class Play:
         self.correct_streak = 0
         self.highest_streak = 0
 
+        # creates the label frame
         self.label_frame = Frame(self.quiz_frame)
         self.label_frame.grid(padx=10, pady=10, row=0)
-
-
 
         # list of the game menu labels and their specifications (gm means game menu)
         # text | font | row
@@ -379,13 +377,7 @@ class Play:
         otherwise highest streak will remain the same
         """
 
-        if current > highest:
-            highest = current
-        else:
-            highest = highest
-
-        return highest
-
+        return max(current, highest)
 
     def answer_checker(self, button_pressed):
         """
