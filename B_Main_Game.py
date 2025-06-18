@@ -20,7 +20,6 @@ def get_gods():
 
     return all_gods
 
-
 def get_question_gods():
     """
     gets the gods and sorts them into their correct lists
@@ -89,7 +88,7 @@ class StartGame:
                        "Good Luck!\n\n" \
                        "To begin, enter how many questions you'd like into the text box below."
 
-        choose_question = "How many questions would you like?"
+        choose_question = "How many questions?"
 
         # list of the main menu labels and their specifications (mm means main menu)
         # text | font | justify
@@ -138,6 +137,12 @@ class StartGame:
 
         self.play_button.grid(row=1)
 
+        # recolours everything to have a background colour
+        recolour_list = [self.start_frame, self.choose_label, self.entry_area_frame,
+                         mm_labels_ref[0], mm_labels_ref[1]]
+
+        recolour(recolour_list, "#DAE8FC")
+
     def check_question(self):
         """
         checks that the number of questions
@@ -168,10 +173,10 @@ class StartGame:
             # display the error if necessary
         if has_errors == "yes":
             self.choose_label.config(fg="#000000", font=("Arial", "12", "bold"),
-                                     text="How many questions would you like?")
+                                     text="How many questions?")
             self.num_questions_entry.delete(0, END)
             self.num_questions_entry.config(bg="#F4CCCC")
-            self.num_questions_entry.insert(0, "Please enter a whole number (>0)")
+            self.num_questions_entry.insert(0, "Please enter a num (>0)")
 
             # removes the placeholder
             self.on_click_id = self.num_questions_entry.bind('<Button-1>')
@@ -316,7 +321,8 @@ class Play:
 
         # creates a list of buttons to recolour to have an orange background
         recolour_list = [self.quiz_frame, self.label_frame, self.help_stats_frame,
-                         self.options_frame, self.heading_label]
+                         self.options_frame, self.heading_label, self.quiz_box,
+                         self.answer_label, self.god_label]
 
         # recolours the buttons
         recolour(recolour_list, "#DAE8FC")
@@ -396,10 +402,8 @@ class Play:
 
     def best_streak(self, current, highest):
         """
-        compares the current streak to the highest streak
-        if the current streak is higher than the highest streak
-        then it changes the highest streak to the current streak
-        otherwise highest streak will remain the same
+        compares the current streak to the highest streak,
+        whichever one is higher, it will return that one
         """
 
         return max(current, highest)
