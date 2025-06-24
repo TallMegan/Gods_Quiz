@@ -182,11 +182,6 @@ class StartGame:
             # removes the placeholder
             self.on_click_id = self.num_questions_entry.bind('<Button-1>')
 
-
-def to_start():
-    root.destroy()
-    StartGame()
-
 class Play:
 
     """
@@ -303,7 +298,7 @@ class Play:
             [self.quiz_frame, "Next Question", "#add8e6", self.new_question, 2, 0, 21],
             [self.help_stats_frame, "Help", "#FF8000", self.to_help, 0, 0, 9],
             [self.help_stats_frame, "Stats", "#FF8000", partial(self.to_stats, self.q_wanted), 0, 1, 9],
-            [self.quiz_frame, "To Start", "#FF7F7F", to_start, 4, 0, 21]
+            [self.quiz_frame, "To Start", "#FF7F7F", self.to_start, 4, 0, 21]
         ]
 
         misc_button_ref = []
@@ -488,6 +483,12 @@ class Play:
         """
         Stats(self, stats_bundle)
 
+    def to_start(self):
+        # reshow root and end current
+        # game / allow new game to start
+        root.deiconify()
+        self.quiz_box.destroy()
+
 
 class Help:
 
@@ -595,7 +596,7 @@ class Stats:
 
         stats_text = (f"\nQuestions Answered: {q_answered}\n\n"
                       f"Questions Correct: {correct_answers} / {q_answered} \n\n"
-                      f"Correct Percentage: {correct_answers / q_answered * 100}% \n\n"
+                      f"Correct Percentage: {correct_answers / q_answered * 100:.2f}% \n\n"
                       f"Highest Streak: {highest_streak}\n\n")
 
         self.stats_text_label = Label(self.stats_frame, text=stats_text,
@@ -618,7 +619,7 @@ class Stats:
         for item in recolour_list:
             item.config(bg=background)
 
-    def close_stats(self, partner):
+    def close_stats(self):
         """
         Closes stats dialogue box
         and enables the stats button
