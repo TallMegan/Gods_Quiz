@@ -58,6 +58,7 @@ def recolour(list, colour):
         item.config(bg=background)
 
 class StartGame:
+
     """
     gods quiz main menu
     """
@@ -181,7 +182,16 @@ class StartGame:
             # removes the placeholder
             self.on_click_id = self.num_questions_entry.bind('<Button-1>')
 
+
+def to_start():
+    root.destroy()
+    StartGame()
+
 class Play:
+
+    """
+    main part of the game
+    """
 
     def __init__(self, q_num):
 
@@ -293,7 +303,7 @@ class Play:
             [self.quiz_frame, "Next Question", "#add8e6", self.new_question, 2, 0, 21],
             [self.help_stats_frame, "Help", "#FF8000", self.to_help, 0, 0, 9],
             [self.help_stats_frame, "Stats", "#FF8000", partial(self.to_stats, self.q_wanted), 0, 1, 9],
-            [self.quiz_frame, "To Start", "#FF7F7F", self.to_start, 4, 0, 21]
+            [self.quiz_frame, "To Start", "#FF7F7F", to_start, 4, 0, 21]
         ]
 
         misc_button_ref = []
@@ -318,6 +328,8 @@ class Play:
         # assigns the stats button to a variable
         self.stats_button = misc_button_ref[2]
         self.stats_button.config(state=DISABLED)
+
+        self.to_start_button = misc_button_ref[3]
 
         # creates a list of buttons to recolour to have an orange background
         recolour_list = [self.quiz_frame, self.label_frame, self.help_stats_frame,
@@ -476,17 +488,22 @@ class Play:
         """
         Stats(self, stats_bundle)
 
-    def to_start(self):
-        StartGame()
-        root.destroy()
 
 class Help:
+
+    """
+    Re-displays the introduction info with
+    some extra bits to help the user if they're stuck
+    """
 
     def __init__(self, partner):
 
         # disables the help button
         # prevents the user from creating multiple help button windows
         partner.help_button.config(state=DISABLED)
+
+        # disable button to prevent program crashing
+        partner.to_start_button.config(state=DISABLED)
 
         self.help_box = Toplevel()
 
@@ -537,13 +554,19 @@ class Help:
         Closes help dialogue box
         """
 
-        # enables the help button again
+        # enables the help/to start button again
         partner.help_button.config(state=NORMAL)
+        partner.to_start_button.config(state=NORMAL)
 
         # destroys the help window
         self.help_box.destroy()
 
 class Stats:
+
+    """
+    Displays the stats for
+    the gods quiz
+    """
 
     def __init__(self, stats_bundle, partner):
 
@@ -561,7 +584,7 @@ class Stats:
 
         # if users press cross at top, closes stats and
         # 'releases' stats button
-        self.stats_box.protocol('WM_DELETE_WINDOW', self.close_stats)
+        self.stats_box.protocol('WM_DELETE_WINDOW', partial(self.close_stats))
 
         self.stats_frame = Frame(self.stats_box, width=300, height=200)
         self.stats_frame.grid(padx=10, pady=10)
@@ -584,7 +607,7 @@ class Stats:
                                      font=("Arial", 12, "bold"),
                                      text="Dismiss", bg="#CC6600",
                                      fg="#FFFFFF",
-                                     command=self.close_stats, height=2, width=20)
+                                     command=partial(self.close_stats, partner), height=2, width=20)
         self.dismiss_button.grid(row=2, padx=10, pady=10)
 
         recolour_list = [self.stats_frame, self.stats_heading_label,
@@ -595,11 +618,13 @@ class Stats:
         for item in recolour_list:
             item.config(bg=background)
 
-    def close_stats(self):
+    def close_stats(self, partner):
         """
         Closes stats dialogue box
         and enables the stats button
+        and to start button
         """
+
         self.stats_button.config(state=NORMAL)
         self.stats_box.destroy()
 
