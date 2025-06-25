@@ -608,7 +608,7 @@ class Stats:
                                      font=("Arial", 12, "bold"),
                                      text="Dismiss", bg="#CC6600",
                                      fg="#FFFFFF",
-                                     command=partial(self.close_stats, partner), height=2, width=20)
+                                     command=self.close_stats, height=2, width=20)
         self.dismiss_button.grid(row=2, padx=10, pady=10)
 
         recolour_list = [self.stats_frame, self.stats_heading_label,
