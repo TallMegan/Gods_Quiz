@@ -389,11 +389,6 @@ class Play:
             options.remove(new_duty)
             columns.remove(column)
 
-        if q_answered >= 1:
-            # enables the stats button as
-            # there is now data to work with
-            self.stats_button.config(state=NORMAL)
-
         print(f"{correct_duty}")
 
     def best_streak(self, current, highest):
@@ -411,6 +406,8 @@ class Play:
         questions the user has already answered
         """
 
+        self.stats_button.config(state=NORMAL)
+        
         # gets the correct answer and
         # num of correct answers so far
         correct_answer = self.correct_answer.get()
