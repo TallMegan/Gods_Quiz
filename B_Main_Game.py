@@ -407,7 +407,7 @@ class Play:
         """
 
         self.stats_button.config(state=NORMAL)
-        
+
         # gets the correct answer and
         # num of correct answers so far
         correct_answer = self.correct_answer.get()
@@ -492,8 +492,9 @@ class Help:
         # prevents the user from creating multiple help button windows
         partner.help_button.config(state=DISABLED)
 
-        # disable button to prevent program crashing
+        # disable buttons to prevent program crashing
         partner.to_start_button.config(state=DISABLED)
+        partner.stats_button.config(state=DISABLED)
 
         self.help_box = Toplevel()
 
@@ -543,10 +544,12 @@ class Help:
         """
         Closes help dialogue box
         """
+        # enables to start and help buttons
+        partner.to_start_button.config(state=NORMAL)
+        partner.stats_button.config(state=NORMAL)
 
         # enables the help/to start button again
         partner.help_button.config(state=NORMAL)
-        partner.to_start_button.config(state=NORMAL)
 
         # destroys the help window
         self.help_box.destroy()
@@ -562,7 +565,9 @@ class Stats:
 
         self.partner = partner
 
+        # prevents the program from crashing
         partner.to_start_button.config(state=DISABLED)
+        partner.help_button.config(state=DISABLED)
 
         # retrieves the stats info
         q_answered = partner.q_answered.get()
@@ -573,6 +578,8 @@ class Stats:
         # prevents the user from being able
         # to open multiple stats windows
         self.stats_button.config(state=DISABLED)
+
+
 
         self.stats_box = Toplevel()
 
@@ -618,7 +625,10 @@ class Stats:
         and enables the stats button
         and to start button
         """
+        # enables to start and help buttons
         partner.to_start_button.config(state=NORMAL)
+        partner.help_button.config(state=NORMAL)
+
         self.stats_button.config(state=NORMAL)
         self.stats_box.destroy()
 
