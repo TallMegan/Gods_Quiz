@@ -581,7 +581,7 @@ class Stats:
 
         # if users press cross at top, closes stats and
         # 'releases' stats button
-        self.stats_box.protocol('WM_DELETE_WINDOW', partial(self.close_stats))
+        self.stats_box.protocol('WM_DELETE_WINDOW', partial(self.close_stats, partner))
 
         self.stats_frame = Frame(self.stats_box, width=300, height=200)
         self.stats_frame.grid(padx=10, pady=10)
