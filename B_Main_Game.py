@@ -297,7 +297,7 @@ class Play:
         misc_buttons = [
             [self.quiz_frame, "Next Question", "#add8e6", self.new_question, 2, 0, 21],
             [self.help_stats_frame, "Help", "#FF8000", self.to_help, 0, 0, 9],
-            [self.help_stats_frame, "Stats", "#FF8000", partial(self.to_stats, self.q_wanted), 0, 1, 9],
+            [self.help_stats_frame, "Stats", "#FF8000", self.to_stats, 0, 1, 9],
             [self.quiz_frame, "To Start", "#FF7F7F", self.to_start, 4, 0, 21]
         ]
 
@@ -337,17 +337,6 @@ class Play:
         # sets up the first question
         self.new_question()
 
-    def __getitem__(self, key):
-        """
-        Makes the all_stats_info retrievable
-        """
-
-        q_answered = self.q_answered.get()
-        correct_answers = self.correct_answers.get()
-
-        all_stats_info = [q_answered, correct_answers, self.highest_streak, self.stats_button]
-
-        return all_stats_info
 
     def new_question(self):
         """
@@ -475,13 +464,16 @@ class Play:
             self.heading_label.config(text="You made it to the End!")
 
     def to_help(self):
+        """
+        Invokes the help class
+        """
         Help(self)
 
-    def to_stats(self, stats_bundle):
+    def to_stats(self):
         """
         Invokes the stats class
         """
-        Stats(self, stats_bundle)
+        Stats(self)
 
     def to_start(self):
         # reshow root and end current
@@ -569,13 +561,17 @@ class Stats:
     the gods quiz
     """
 
-    def __init__(self, stats_bundle, partner):
+    def __init__(self, partner):
+
+        self.partner = partner
+
+        partner.to_start_button.config(state=DISABLED)
 
         # retrieves the stats info
-        q_answered = stats_bundle[0][0]
-        correct_answers = stats_bundle[0][1]
-        highest_streak = stats_bundle[0][2]
-        self.stats_button = stats_bundle[0][3]
+        q_answered = partner.q_answered.get()
+        correct_answers = partner.correct_answers.get()
+        highest_streak = partner.highest_streak
+        self.stats_button = partner.stats_button
 
         # prevents the user from being able
         # to open multiple stats windows
@@ -608,7 +604,7 @@ class Stats:
                                      font=("Arial", 12, "bold"),
                                      text="Dismiss", bg="#CC6600",
                                      fg="#FFFFFF",
-                                     command=self.close_stats, height=2, width=20)
+                                     command=partial(self.close_stats, partner), height=2, width=20)
         self.dismiss_button.grid(row=2, padx=10, pady=10)
 
         recolour_list = [self.stats_frame, self.stats_heading_label,
@@ -619,13 +615,13 @@ class Stats:
         for item in recolour_list:
             item.config(bg=background)
 
-    def close_stats(self):
+    def close_stats(self, partner):
         """
         Closes stats dialogue box
         and enables the stats button
         and to start button
         """
-
+        partner.to_start_button.config(state=NORMAL)
         self.stats_button.config(state=NORMAL)
         self.stats_box.destroy()
 
