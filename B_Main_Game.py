@@ -106,7 +106,6 @@ class StartGame:
         mm_labels = [
             ["Gods Quiz", ("Arial", "16", "bold")],
             [intro_string, ("Arial", "12")],
-            [choose_question, ("Arial", "12", "bold")]
         ]
 
         # create labels and add them to a reference list (mm means main menu)
@@ -119,10 +118,6 @@ class StartGame:
 
             mm_labels_ref.append(make_label)
 
-        # extract choice label so that it can be changed to an
-        # error message if necessary
-        self.choose_label = mm_labels_ref[2]
-
         # frame so that entry box and button ca be in the same row
         self.entry_area_frame = Frame(self.start_frame)
         self.entry_area_frame.grid(row=3)
@@ -133,7 +128,7 @@ class StartGame:
 
         # inserts the placeholder
         self.num_questions_entry.pack()
-        self.num_questions_entry.insert(0, "How many questions would you like?")
+        self.num_questions_entry.insert(0, "How many questions?")
         self.num_questions_entry.config(state="normal")
 
         # removes the placeholder
@@ -149,7 +144,7 @@ class StartGame:
         self.play_button.grid(row=1)
 
         # recolours everything to have a background colour
-        recolour_list = [self.start_frame, self.choose_label, self.entry_area_frame,
+        recolour_list = [self.start_frame, self.entry_area_frame,
                          mm_labels_ref[0], mm_labels_ref[1]]
 
         recolour(recolour_list, "#DAE8FC")
@@ -184,8 +179,6 @@ class StartGame:
 
             # display the error if necessary
         if has_errors == "yes":
-            self.choose_label.config(fg="#000000", font=("Arial", "12", "bold"),
-                                     text="How many questions?")
             self.num_questions_entry.delete(0, END)
             self.num_questions_entry.config(bg="#F4CCCC")
             self.num_questions_entry.insert(0, "Please enter a num (>0)")
@@ -551,7 +544,14 @@ class Help:
         """
         # enables to start and help buttons
         partner.to_start_button.config(state=NORMAL)
-        partner.stats_button.config(state=NORMAL)
+
+        # gets the number of questions answered
+        q_answered = partner.q_answered.get()
+
+        # makes sure that the stats button is only
+        # enabled if the q_answered is > 1 to prevent errors
+        if q_answered >= 1:
+            partner.stats_button.config(state=NORMAL)
 
         # enables the help/to start button again
         partner.help_button.config(state=NORMAL)
