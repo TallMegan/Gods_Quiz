@@ -1,0 +1,439 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" version="27.1.6">
+  <diagram name="Page-1" id="Ru4y84RPGqJIgSpHu5v1">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-16" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="670" y="-610" width="340" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="240" y="-640" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-3" value="&lt;font style=&quot;color: rgb(204, 204, 204); font-size: 12px;&quot;&gt;Gods Quiz&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="-635" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="240" y="-610" width="340" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-6" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;Welcome to my quiz about Greek and Roman Gods! Every round there will be a randomly selected god and 3 buttons will appear, 2 of them will be 2 random god&#39;s jobs/duties and 1 will be the correct one for the god that was randomly selected. Your job is to select the right one.&lt;/font&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;Good luck!&lt;/span&gt;&lt;font size=&quot;1&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;div&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;To begin, enter how many questions you&#39;d like into the text box&lt;/font&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;.&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="281.25" y="-550" width="257.5" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-7" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Gods Quiz&amp;nbsp;&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="281.25" y="-610" width="110" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-9" value="&lt;font style=&quot;color: rgb(204, 204, 204); font-size: 10px;&quot;&gt;How many questions would you like?&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="307.5" y="-420" width="205" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-10" value="Play" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="355" y="-370" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-11" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;Welcome to my quiz about Greek and Roman Gods! Every round there will be a randomly selected god and 3 buttons will appear, 2 of them will be 2 random god&#39;s jobs/duties and 1 will be the correct one for the god that was randomly selected. Your job is to select the right one.&lt;/font&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;Good luck!&lt;/span&gt;&lt;font size=&quot;1&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;div&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;To begin, enter how many questions you&#39;d like into the text box&lt;/font&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;.&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="711.25" y="-550" width="257.5" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-12" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Gods Quiz&amp;nbsp;&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="711.25" y="-610" width="110" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-13" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="737.5" y="-420" width="205" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-14" value="Play" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="785.01" y="-370" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-15" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="670" y="-640" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-17" value="&lt;font style=&quot;color: rgb(204, 204, 204); font-size: 12px;&quot;&gt;Gods Quiz&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="-635" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-19" value="&lt;span style=&quot;text-align: left;&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;Error: Please enter a number or make it more than 0&lt;/font&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="740.63" y="-415" width="198.75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-20" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Start GUI (Normal)&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="305" y="-700" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-21" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;&amp;nbsp;Start GUI (Error)&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="735.01" y="-700" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-24" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="460" y="-170" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-25" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="460" y="-140" width="360" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-26" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="RFc9ZbvymKZuScVOBzlY-10" target="RFc9ZbvymKZuScVOBzlY-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="570" y="-50" as="sourcePoint" />
+            <mxPoint x="620" y="-100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RFc9ZbvymKZuScVOBzlY-28" value="&lt;font style=&quot;font-size: 12px; color: rgb(0, 0, 0);&quot;&gt;Round __of __&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="455" y="-165" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="n-5JhzqkePY8jBs60MrZ-2" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="RFc9ZbvymKZuScVOBzlY-4" target="RFc9ZbvymKZuScVOBzlY-16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="-390" as="sourcePoint" />
+            <mxPoint x="650" y="-440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n-5JhzqkePY8jBs60MrZ-3" value="(Gods Name)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="-125" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n-5JhzqkePY8jBs60MrZ-4" value="Option 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="470" y="-10" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n-5JhzqkePY8jBs60MrZ-6" value="Option 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="590" y="-10" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n-5JhzqkePY8jBs60MrZ-7" value="Option 3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="710" y="-10" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n-5JhzqkePY8jBs60MrZ-8" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Next Question&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="480" y="60" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n-5JhzqkePY8jBs60MrZ-11" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;Help&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="480" y="120" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n-5JhzqkePY8jBs60MrZ-12" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Stats&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="650" y="120" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n-5JhzqkePY8jBs60MrZ-13" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;End Game&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="480" y="170" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n-5JhzqkePY8jBs60MrZ-14" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="-280" y="-120" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n-5JhzqkePY8jBs60MrZ-15" value="&lt;font style=&quot;color: rgb(204, 204, 204); font-size: 12px;&quot;&gt;Gods Quiz&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-280" y="-115" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="n-5JhzqkePY8jBs60MrZ-16" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="-280" y="-90" width="340" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="n-5JhzqkePY8jBs60MrZ-17" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="n-5JhzqkePY8jBs60MrZ-11" target="n-5JhzqkePY8jBs60MrZ-16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="130" as="sourcePoint" />
+            <mxPoint x="580" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n-5JhzqkePY8jBs60MrZ-19" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;- There will be a randomly selected god and 3 buttons will appear,&amp;nbsp;&lt;/font&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;- 2 of them will be 2 random god&#39;s jobs/duties and 1 will be the correct one for the god that was randomly selected.&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;- Your job is to select the right one.&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;- After you select an option&lt;/font&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 14px;&quot;&gt;&amp;nbsp;press the next question button and we will randomly select another god and 3 duties.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 14px;&quot;&gt;&amp;nbsp;Once it has been however many questions you have selected, the game will end&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 14px;&quot;&gt;- You can see your stats by pressing the stats button&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-255" y="-20" width="290" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="n-5JhzqkePY8jBs60MrZ-20" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;How to Play:&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-255" y="-80" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="-120" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="-90" width="340" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-3" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="n-5JhzqkePY8jBs60MrZ-12" target="CE3x9YV48PscBJlDJgwL-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="945.01" y="155" as="sourcePoint" />
+            <mxPoint x="695.01" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-4" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;Questions Correct: ___ / ___&lt;/span&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="20" width="297.5" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-5" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;Game Statistics:&amp;nbsp;&lt;/span&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1247.5" y="-80" width="155" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-6" value="&lt;font style=&quot;color: rgb(204, 204, 204); font-size: 12px;&quot;&gt;Gods Quiz&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="-115" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-8" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;Help&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-215" y="-170" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-9" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;Game Statistics&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="-175" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-10" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="105" y="415" width="360" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-11" value="(Gods Name)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="215" y="430" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-12" value="Option 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="115" y="545" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-13" value="Option 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="235" y="545" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-14" value="Option 3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="355" y="545" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-15" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Next Question&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="125" y="615" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-16" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;Help&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="125" y="675" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-17" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Stats&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="295" y="675" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-18" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;End Game&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="125" y="725" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-19" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="105" y="385" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-23" value="Correct!" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="204.5" y="505" width="153.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-47" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="826.87" y="415" width="360" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-48" value="(Gods Name)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="936.87" y="430" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-49" value="Option 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="836.87" y="545" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-50" value="Option 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="956.87" y="545" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-51" value="Option 3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1076.87" y="545" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-52" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Next Question&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="846.87" y="615" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-53" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;Help&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="846.87" y="675" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-54" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Stats&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1016.87" y="675" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-55" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;End Game&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="846.87" y="725" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-56" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="826.87" y="385" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-59" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;Game Interface&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="535" y="-210" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-60" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;Game Interface (Incorrect Answer)&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="810" y="345" width="393.75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-61" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;Game Interface (Correct Answer)&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="84.37" y="340" width="393.75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-63" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="RFc9ZbvymKZuScVOBzlY-25" target="CE3x9YV48PscBJlDJgwL-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="480" y="250" as="sourcePoint" />
+            <mxPoint x="530" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-64" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="RFc9ZbvymKZuScVOBzlY-25" target="CE3x9YV48PscBJlDJgwL-47">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="650" y="250" as="sourcePoint" />
+            <mxPoint x="570" y="505" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-79" value="Select an Option below:" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;align=center;" vertex="1" parent="1">
+          <mxGeometry x="563.25" y="-50" width="153.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-80" value="Incorrect!" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="930.12" y="505" width="153.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-86" value="&lt;font style=&quot;font-size: 12px; color: rgb(0, 0, 0);&quot;&gt;Round __of __&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="104.5" y="390" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-87" value="&lt;font style=&quot;font-size: 12px; color: rgb(0, 0, 0);&quot;&gt;Round __of __&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="826.87" y="390" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-90" value="&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Correct Percentage: ___%&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="60" width="290" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-91" value="&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Highest Streak: ___&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="115" width="290" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-93" value="&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Questions Answered: ___&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="-40" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-94" value="Start Game" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-790" y="-585" width="225" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-98" value="__init__(GUI)" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="CE3x9YV48PscBJlDJgwL-94">
+          <mxGeometry y="30" width="225" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-95" value="check_question" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="CE3x9YV48PscBJlDJgwL-94">
+          <mxGeometry y="60" width="225" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-96" value="to_play" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="CE3x9YV48PscBJlDJgwL-94">
+          <mxGeometry y="90" width="225" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-97" value="hide_start_game" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="CE3x9YV48PscBJlDJgwL-94">
+          <mxGeometry y="120" width="225" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-99" value="Play" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-440.5" y="-615" width="225" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-100" value="__init__(GUI)" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="CE3x9YV48PscBJlDJgwL-99">
+          <mxGeometry y="30" width="225" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-101" value="next_question" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="CE3x9YV48PscBJlDJgwL-99">
+          <mxGeometry y="60" width="225" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-102" value="get_answer (whether its correct or not, will change name later probably)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="CE3x9YV48PscBJlDJgwL-99">
+          <mxGeometry y="90" width="225" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-103" value="to_help" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="CE3x9YV48PscBJlDJgwL-99">
+          <mxGeometry y="120" width="225" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-104" value="to_stats&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-wrap: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22to_hints%22%20style%3D%22text%3BstrokeColor%3Dnone%3BfillColor%3Dnone%3Balign%3Dleft%3BverticalAlign%3Dmiddle%3BspacingLeft%3D4%3BspacingRight%3D4%3Boverflow%3Dhidden%3Bpoints%3D%5B%5B0%2C0.5%5D%2C%5B1%2C0.5%5D%5D%3BportConstraint%3Deastwest%3Brotatable%3D0%3BwhiteSpace%3Dwrap%3Bhtml%3D1%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22-20.5%22%20y%3D%22-1130%22%20width%3D%22225%22%20height%3D%2230%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="CE3x9YV48PscBJlDJgwL-99">
+          <mxGeometry y="150" width="225" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-106" value="to_start (end game basically)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="CE3x9YV48PscBJlDJgwL-99">
+          <mxGeometry y="180" width="225" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-112" value="Help" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-170" y="-600" width="225" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-113" value="__init__(GUI)" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="CE3x9YV48PscBJlDJgwL-112">
+          <mxGeometry y="30" width="225" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-114" value="close_help" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="CE3x9YV48PscBJlDJgwL-112">
+          <mxGeometry y="60" width="225" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-119" value="Stats" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-170" y="-480" width="225" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-120" value="__init__(GUI)" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="CE3x9YV48PscBJlDJgwL-119">
+          <mxGeometry y="30" width="225" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-122" value="calculate stats (rounds played, rounds won, win percentage, win streak)&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="CE3x9YV48PscBJlDJgwL-119">
+          <mxGeometry y="60" width="225" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CE3x9YV48PscBJlDJgwL-121" value="close_stats" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="CE3x9YV48PscBJlDJgwL-119">
+          <mxGeometry y="90" width="225" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-5" value="Classes" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="-730" width="140" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-6" value="StartGame" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-5">
+          <mxGeometry y="30" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-7" value="Play" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-5">
+          <mxGeometry y="60" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-10" value="Help" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-5">
+          <mxGeometry y="90" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-8" value="Stats" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-5">
+          <mxGeometry y="120" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-12" value="StartGame" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1410" y="-740" width="160" height="190" as="geometry">
+            <mxRectangle x="1083.62" y="-1480" width="100" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-19" value="Create GUI" style="text;strokeColor=#666666;fillColor=#CCFFCC;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-12">
+          <mxGeometry y="30" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-15" value="Check questions are ints and that they are &amp;gt; 0" style="text;strokeColor=#666666;fillColor=#CCFFCC;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-12">
+          <mxGeometry y="70" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-18" value="To Play" style="text;strokeColor=#666666;fillColor=#CCFFCC;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-12">
+          <mxGeometry y="110" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-20" value="Hide GUI (doesn&#39;t destroy it though)" style="text;strokeColor=#666666;fillColor=#CCFFCC;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-12">
+          <mxGeometry y="150" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-29" value="Help" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1980" y="-820" width="160" height="110" as="geometry">
+            <mxRectangle x="1083.62" y="-1480" width="100" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-65" value="Create GUI" style="text;strokeColor=#666666;fillColor=#CCFFCC;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-29">
+          <mxGeometry y="30" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-34" value="Close Help" style="text;strokeColor=#666666;fillColor=#CCFFCC;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-29">
+          <mxGeometry y="70" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-37" value="Stats" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1980" y="-645" width="160" height="190" as="geometry">
+            <mxRectangle x="1083.62" y="-1480" width="100" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-38" value="Create GUI" style="text;strokeColor=#666666;fillColor=#CCFFCC;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-37">
+          <mxGeometry y="30" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-66" value="Calculates/Display Stats (questions answered, questions correct, correct percentage, highest correct answer streak)" style="text;strokeColor=#666666;fillColor=#CCFFCC;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-37">
+          <mxGeometry y="70" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-42" value="Close Stats" style="text;strokeColor=#666666;fillColor=#CCFFCC;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-37">
+          <mxGeometry y="150" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-45" value="Question Outcome Details" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1800" y="-730" width="160" height="180" as="geometry">
+            <mxRectangle x="1083.62" y="-1480" width="100" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-48" value="Compares the answer selected to the correct answer" style="text;strokeColor=default;fillColor=#CCFFCC;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-45">
+          <mxGeometry y="30" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-64" value="Changes label depending on the answer (right or wrong)" style="text;strokeColor=#82b366;fillColor=#CCFFCC;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-45">
+          <mxGeometry y="80" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-60" value="Appends/Update the answer, question num, god in the question to a stats list" style="text;strokeColor=#82b366;fillColor=#CCFFCC;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-45">
+          <mxGeometry y="130" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.004;entryY=0.063;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="Va75fr-KlRqJ2gUIKI6u-25" target="Va75fr-KlRqJ2gUIKI6u-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.009;entryY=0.085;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="CE3x9YV48PscBJlDJgwL-96" target="CE3x9YV48PscBJlDJgwL-99">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="CE3x9YV48PscBJlDJgwL-106" target="CE3x9YV48PscBJlDJgwL-94">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-830" y="-420" />
+              <mxPoint x="-830" y="-570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="CE3x9YV48PscBJlDJgwL-103" target="CE3x9YV48PscBJlDJgwL-112">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.008;entryY=0.123;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="CE3x9YV48PscBJlDJgwL-104" target="CE3x9YV48PscBJlDJgwL-119">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-21" value="Play" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1600" y="-780" width="160" height="310" as="geometry">
+            <mxRectangle x="1083.62" y="-1480" width="100" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-22" value="Create GUI" style="text;strokeColor=#666666;fillColor=#CCFFCC;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-21">
+          <mxGeometry y="30" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-23" value="Get the god names and duties from csv file" style="text;strokeColor=#666666;fillColor=#CCFFCC;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-21">
+          <mxGeometry y="70" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-25" value="Question Outcome" style="text;strokeColor=#9673a6;fillColor=#e1d5e7;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-21">
+          <mxGeometry y="110" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-24" value="Next Question" style="text;strokeColor=#666666;fillColor=#CCFFCC;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-21">
+          <mxGeometry y="150" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-26" value="To Help" style="text;strokeColor=#666666;fillColor=#CCFFCC;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-21">
+          <mxGeometry y="190" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-27" value="To Stats" style="text;strokeColor=#666666;fillColor=#CCFFCC;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-21">
+          <mxGeometry y="230" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Va75fr-KlRqJ2gUIKI6u-28" value="To Start (destroys play GUI, shows home screen)" style="text;strokeColor=#666666;fillColor=#CCFFCC;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="Va75fr-KlRqJ2gUIKI6u-21">
+          <mxGeometry y="270" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="j9BuxcGRtjMS1kjjJDW4-1" value="&lt;b&gt;Dismiss&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFD4A9;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="-170" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="jQHvN3DCB3mdXLsmIOfw-1" value="&lt;b&gt;Dismiss&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFD4A9;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="190" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

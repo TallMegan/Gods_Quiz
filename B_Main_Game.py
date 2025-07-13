@@ -20,7 +20,6 @@ def get_gods():
 
     return all_gods
 
-
 def get_question_gods():
     """
     gets the gods and sorts them into their correct lists
@@ -28,31 +27,22 @@ def get_question_gods():
     """
     for item in range(0, 3):
         incorrect_duties = []
-
-        # retrieves the gods from the csv file
         gods = get_gods()
 
-        # selects the god and removes it from the possible options
-        # that is left to ensure there are no duplicates
         god_selected = random.choice(gods)
         gods.remove(god_selected)
 
-        # selects two random duties and appends
-        # them to the incorrect duties list
         for item in range(0, 2):
             random_duties = random.choice(gods)
             incorrect_duties.append(random_duties[1])
             gods.remove(random_duties)
 
-        # assigns each thing to its own variable to
-        # be assigned once it is returned
         god_name = god_selected[0]
         correct_duty = god_selected[1]
         incorrect_duty_1 = incorrect_duties[0]
         incorrect_duty_2 = incorrect_duties[1]
 
         return god_name, correct_duty, incorrect_duty_1, incorrect_duty_2
-
 
 def recolour(list, colour):
     """
@@ -67,8 +57,8 @@ def recolour(list, colour):
     for item in recolour_list:
         item.config(bg=background)
 
-
 class StartGame:
+
     """
     gods quiz main menu
     """
@@ -106,6 +96,7 @@ class StartGame:
         mm_labels = [
             ["Gods Quiz", ("Arial", "16", "bold")],
             [intro_string, ("Arial", "12")],
+            [choose_question, ("Arial", "12", "bold")]
         ]
 
         # create labels and add them to a reference list (mm means main menu)
@@ -118,6 +109,10 @@ class StartGame:
 
             mm_labels_ref.append(make_label)
 
+        # extract choice label so that it can be changed to an
+        # error message if necessary
+        self.choose_label = mm_labels_ref[2]
+
         # frame so that entry box and button ca be in the same row
         self.entry_area_frame = Frame(self.start_frame)
         self.entry_area_frame.grid(row=3)
@@ -128,7 +123,7 @@ class StartGame:
 
         # inserts the placeholder
         self.num_questions_entry.pack()
-        self.num_questions_entry.insert(0, "How many questions?")
+        self.num_questions_entry.insert(0, "How many questions would you like?")
         self.num_questions_entry.config(state="normal")
 
         # removes the placeholder
@@ -144,7 +139,7 @@ class StartGame:
         self.play_button.grid(row=1)
 
         # recolours everything to have a background colour
-        recolour_list = [self.start_frame, self.entry_area_frame,
+        recolour_list = [self.start_frame, self.choose_label, self.entry_area_frame,
                          mm_labels_ref[0], mm_labels_ref[1]]
 
         recolour(recolour_list, "#DAE8FC")
@@ -163,7 +158,6 @@ class StartGame:
             q_wanted = int(q_wanted)
 
             if q_wanted > 0:
-                # deletes the text inside the entry box
                 self.num_questions_entry.delete(0, END)
                 self.num_questions_entry.config(bg="#a9a9a9")
                 Play(q_wanted)
@@ -179,6 +173,8 @@ class StartGame:
 
             # display the error if necessary
         if has_errors == "yes":
+            self.choose_label.config(fg="#000000", font=("Arial", "12", "bold"),
+                                     text="How many questions?")
             self.num_questions_entry.delete(0, END)
             self.num_questions_entry.config(bg="#F4CCCC")
             self.num_questions_entry.insert(0, "Please enter a num (>0)")
@@ -186,8 +182,8 @@ class StartGame:
             # removes the placeholder
             self.on_click_id = self.num_questions_entry.bind('<Button-1>')
 
-
 class Play:
+
     """
     main part of the game
     """
@@ -202,10 +198,13 @@ class Play:
         # stores the variables
         # basically allows it to be passed between functions by using "(variable).get()"
         self.correct_answer = StringVar()
+
         self.q_wanted = IntVar()
         self.q_wanted.set(q_num)
+
         self.q_answered = IntVar()
         self.q_answered.set(0)
+
         self.correct_answers = IntVar()
         self.correct_answers.set(0)
 
@@ -337,6 +336,7 @@ class Play:
 
         # sets up the first question
         self.new_question()
+
 
     def new_question(self):
         """
@@ -480,12 +480,14 @@ class Play:
 
 
 class Help:
+
     """
     Re-displays the introduction info with
     some extra bits to help the user if they're stuck
     """
 
     def __init__(self, partner):
+
         # disables the help button
         # prevents the user from creating multiple help button windows
         partner.help_button.config(state=DISABLED)
@@ -544,14 +546,7 @@ class Help:
         """
         # enables to start and help buttons
         partner.to_start_button.config(state=NORMAL)
-
-        # gets the number of questions answered
-        q_answered = partner.q_answered.get()
-
-        # makes sure that the stats button is only
-        # enabled if the q_answered is > 1 to prevent errors
-        if q_answered >= 1:
-            partner.stats_button.config(state=NORMAL)
+        partner.stats_button.config(state=NORMAL)
 
         # enables the help/to start button again
         partner.help_button.config(state=NORMAL)
@@ -559,14 +554,15 @@ class Help:
         # destroys the help window
         self.help_box.destroy()
 
-
 class Stats:
+
     """
     Displays the stats for
     the gods quiz
     """
 
     def __init__(self, partner):
+
         self.partner = partner
 
         # prevents the program from crashing
@@ -582,6 +578,8 @@ class Stats:
         # prevents the user from being able
         # to open multiple stats windows
         self.stats_button.config(state=DISABLED)
+
+
 
         self.stats_box = Toplevel()
 
@@ -633,7 +631,6 @@ class Stats:
 
         self.stats_button.config(state=NORMAL)
         self.stats_box.destroy()
-
 
 # main routine
 if __name__ == "__main__":

@@ -156,11 +156,13 @@ class Play:
 
     def to_stats(self, all_stats_info):
         # correct_answers = self.correct_answers.get
-        Stats(self, all_stats_info)
+        Stats(self)
 
 class Stats:
 
-    def __init__(self, all_stats_info, partner):
+    def __init__(self, partner):
+
+        all_stats_info = [self.q_answered, self.correct_answers]
 
         # retrieves the stats info
         q_answered = all_stats_info[0][0]

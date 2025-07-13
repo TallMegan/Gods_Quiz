@@ -20,12 +20,12 @@ class Play:
 
     def to_help(self):
 
-        Help(self.help_button)
+        Help(self, self.help_button)
 
 
 class Help:
 
-    def __init__(self, help_button):
+    def __init__(self, help_button, partner):
 
         self.help_button = help_button
         self.help_button.config(state=DISABLED)
@@ -61,7 +61,7 @@ class Help:
                                      font=("Arial", 12, "bold"),
                                      text="Dismiss", bg="#CC6600",
                                      fg="#FFFFFF",
-                                     command=self.close_help, height=2, width=20)
+                                     command=partial(self.close_help, partner), height=2, width=20)
         self.dismiss_button.grid(row=2, padx=10, pady=10)
 
         recolour_list = [self.help_frame, self.help_heading_label,

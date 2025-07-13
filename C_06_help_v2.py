@@ -27,7 +27,7 @@ class Help:
 
     def __init__(self, partner):
 
-        partner.help_button.config(state=DISABLED)
+        partner.stats_button.config(state=DISABLED)
 
         self.help_box = Toplevel()
 
@@ -75,7 +75,7 @@ class Help:
         """
         Closes help dialogue box
         """
-        partner.help_button.config(state=NORMAL)
+        partner.stats_button.config(state=NORMAL)
 
         self.help_box.destroy()
 

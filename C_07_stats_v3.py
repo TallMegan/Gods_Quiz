@@ -374,7 +374,6 @@ class Play:
 
         print(f"{correct_duty}")
 
-    # checks the answer
     def answer_checker(self, button_pressed):
         """
         Gets the answer that was set in the new_question function and then
@@ -440,7 +439,6 @@ class Play:
                 item.config(state=DISABLED)
 
             self.heading_label.config(text="You made it to the End!")
-
 
     def to_stats(self, stats_bundle):
         """

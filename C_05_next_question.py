@@ -53,7 +53,6 @@ class Play:
 
     def __init__(self, q_num):
 
-        self.correct_answer = None
         self.quiz_frame = Frame()
         self.quiz_frame.grid(padx=10, pady=10)
 
@@ -67,6 +66,8 @@ class Play:
 
         self.label_frame = Frame(self.quiz_frame)
         self.label_frame.grid(padx=10, pady=10, row=0)
+
+        self.correct_answer = StringVar()
 
         # list of the game menu labels and their specifications (gm means game menu)
         # text | font | row
@@ -213,15 +214,20 @@ class Play:
             [f"{incorrect_2}"],
         ]
 
+        self.correct_answer.set(correct_duty)
+
         columns = [1, 2, 3]
 
         buttons = [self.button_1, self.button_2, self.button_3]
 
         for count, item in enumerate(buttons):
             new_duty = random.choice(options)
+            # print(f"selected: {new_duty}")
             column = random.choice(columns)
+            # print(f"column: {column}")
             buttons[count].config(text=new_duty[0])
             buttons[count].grid(column=column)
+            # print(f"{count}")
 
             options.remove(new_duty)
             columns.remove(column)

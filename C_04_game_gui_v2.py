@@ -167,6 +167,11 @@ class Play:
         self.quiz_frame = Frame(self.quiz_box)
         self.quiz_frame.grid(padx=10, pady=10)
 
+        # stores the q_wanted and sets it to the q_num
+        # basically allows it to be passed between functions by using "(variable).get()"
+        q_wanted = IntVar()
+        q_wanted.set(q_num)
+
         god_name, correct_duty, incorrect_1, incorrect_2 = get_question_gods()
 
         # list of the game menu labels and their specifications (gm means game menu)

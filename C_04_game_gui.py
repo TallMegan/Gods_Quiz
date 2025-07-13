@@ -197,13 +197,17 @@ class Play:
             [f"{incorrect_2}", ("Arial", "12")],
         ]
 
-        # create labels and add them to a reference list (mm means main menu)
+        # create labels and add them to a reference list
         option_labels_ref = []
         for count, item in enumerate(option_labels):
             option_label = Button(self.options_frame, text=item[0], font=item[1],
                                   pady=10, padx=10, justify="left",
                                   wraplength=350)
             option_label.grid(row=0, column=count, pady=5, padx=5)
+
+            option_labels_ref.append(option_label)
+
+        correct_button = option_labels_ref[0]
 
 
 # main routine

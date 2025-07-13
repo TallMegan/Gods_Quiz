@@ -6,44 +6,13 @@ class StartGame:
     gods quiz main menu
     """
 
-    def check_question(self):
-        """
-        checks that the number of questions
-        is valid (above 0 and an integer, not a letter)
-        """
-        q_wanted = self.num_questions_entry.get()
-
-        has_errors = "no"
-
-        # reset label and entry box (for when users come back to home screen)
-        try:
-            q_wanted = int(q_wanted)
-
-            if q_wanted > 0:
-                # temporary success message, replace with call to PlayGame class
-                self.choose_label.config(fg="#009900", font=("Arial", "12", "bold"),
-                                         text=f"You have chosen to play {q_wanted} round/s")
-            else:
-                has_errors = "yes"
-
-        except ValueError:
-            has_errors = "yes"
-
-            # display the error if necessary
-        if has_errors == "yes":
-            self.num_questions_entry.delete(0, END)
-            self.num_questions_entry.config(bg="#F4CCCC")
-            self.num_questions_entry.insert(0, "Please enter a whole number (>0)")
-            self.num_questions_entry.configure(state=DISABLED)
-
-            # removes the placeholder
-            self.on_click_id = self.num_questions_entry.bind('<Button-1>')
-
     def __init__(self):
         """
         gets the number of questions from the user
         """
 
+        # upon user clicking the entry box,
+        # it removes the placeholder
         def on_click(event):
             self.num_questions_entry.configure(state=NORMAL)
             self.num_questions_entry.delete(0, END)
@@ -110,6 +79,47 @@ class StartGame:
                                   command=self.check_question)
 
         self.play_button.grid(row=1)
+
+    def check_question(self):
+        """
+        checks that the number of questions
+        is valid (above 0 and an integer, not a letter)
+        """
+        q_wanted = self.num_questions_entry.get()
+
+        has_errors = "no"
+
+        # reset label and entry box (for when users come back to home screen)
+        try:
+            q_wanted = int(q_wanted)
+
+            if q_wanted > 0:
+                # temporary success message, replace with call to PlayGame class
+                self.choose_label.config(fg="#009900", font=("Arial", "12", "bold"),
+                                         text=f"You have chosen to play {q_wanted} round/s")
+                Play(q_wanted)
+
+            else:
+                has_errors = "yes"
+
+        except ValueError:
+            has_errors = "yes"
+
+            # display the error if necessary
+        if has_errors == "yes":
+            self.num_questions_entry.delete(0, END)
+            self.num_questions_entry.config(bg="#F4CCCC")
+            self.num_questions_entry.insert(0, "Please enter a whole number (>0)")
+
+            # removes the placeholder
+            self.on_click_id = self.num_questions_entry.bind('<Button-1>')
+
+
+class Play:
+
+    def __init__(self, q_num):
+        self.quiz_frame = Frame(padx=10, pady=10)
+        self.quiz_frame.grid()
 
 
 # main routine
